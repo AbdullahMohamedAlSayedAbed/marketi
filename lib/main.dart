@@ -17,7 +17,7 @@ class MarketApp extends StatelessWidget {
     return MaterialApp(
       title: 'Market App',
       onGenerateRoute: AppRouter.onGenerateRoute,
-      initialRoute: AppRouter.createNewPassword,
+      initialRoute: AppRouter.splash,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
