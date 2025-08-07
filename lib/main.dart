@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:marketi/core/services/get_it_services.dart';
 import 'package:marketi/core/utils/app_colors.dart';
 import 'package:marketi/core/utils/on_generate_router.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setupServiceLocator();
   runApp(const MarketApp());
 }
 

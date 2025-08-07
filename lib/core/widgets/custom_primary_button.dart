@@ -12,16 +12,19 @@ class CustomPrimaryButton extends StatelessWidget {
   final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        backgroundColor: AppColors.primaryColor,
-        padding: const EdgeInsets.symmetric(vertical: 12),
-      ),
-      onPressed: onPressed,
-      child: Text(
-        text,
-        style: AppStyles().style18w500.copyWith(color: AppColors.whiteColor),
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          backgroundColor: AppColors.primaryColor,
+          padding: const EdgeInsets.symmetric(vertical: 12),
+        ),
+        onPressed: onPressed,
+        child: Text(
+          text,
+          style: AppStyles().style18w500.copyWith(color: AppColors.whiteColor),
+        ),
       ),
     );
   }

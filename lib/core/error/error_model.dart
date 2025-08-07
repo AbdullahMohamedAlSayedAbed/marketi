@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:marketi/core/api/end_points.dart';
 
 class ErrorModel {

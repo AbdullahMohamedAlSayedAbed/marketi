@@ -16,7 +16,7 @@ class CustomTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final void Function(String?)? onSaved;
   final bool obscureText;
-  final Widget? prefixIcon;
+  final IconData? prefixIcon;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -31,7 +31,7 @@ class CustomTextFormField extends StatelessWidget {
       keyboardType: textInputType,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
-        prefixIcon: prefixIcon,
+        prefixIcon: Icon(prefixIcon, color: AppColors.darkPrimaryColor),
         hintStyle: AppStyles().style12w400.copyWith(
           color: AppColors.greyColor,
         ),

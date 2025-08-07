@@ -26,10 +26,7 @@ class ItemOnboardingWidget extends StatelessWidget {
         SizedBox(height: 44),
         Text(item.description, textAlign: TextAlign.center),
         Spacer(),
-        SizedBox(
-          width: double.infinity,
-          child: CustomPrimaryButton(text: item.textBut, onPressed: onPressed),
-        ),
+        CustomPrimaryButton(text: item.textBut, onPressed: onPressed),
         SizedBox(height: 14),
       ],
     ).paddingSymmetric(horizontalPadding: kHorizontalPadding);

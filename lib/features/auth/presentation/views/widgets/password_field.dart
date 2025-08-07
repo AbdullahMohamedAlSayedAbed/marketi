@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:marketi/core/utils/app_colors.dart';
+import 'package:marketi/core/utils/app_strings.dart';
 import 'package:marketi/core/widgets/custom_text_form_field.dart';
 
 
@@ -18,17 +20,18 @@ class _PasswordFieldState extends State<PasswordField> {
     return CustomTextFormField(
       obscureText: obscureText,
       onSaved: widget.onSaved,
-      suffixIcon: GestureDetector(
-        onTap: () {
+      prefixIcon:  Icons.lock_outline,
+      suffixIcon: IconButton(
+        onPressed: () {
           obscureText = !obscureText;
           setState(() {});
         },
-        child:
+        icon:
             obscureText
-                ? const Icon(Icons.remove_red_eye, color: Color(0xffC9CECF))
-                : const Icon(Icons.visibility_off, color: Color(0xffC9CECF)),
+                ? const Icon(Icons.remove_red_eye, color: AppColors.darkPrimaryColor)
+                : const Icon(Icons.visibility_off, color: AppColors.darkPrimaryColor),
       ),
-      hintText: 'كلمة المرور',
+      hintText: AppStrings.password,
       textInputType: TextInputType.visiblePassword,
     );
   }

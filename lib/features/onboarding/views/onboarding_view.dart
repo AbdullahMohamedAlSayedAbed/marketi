@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:marketi/core/extension/padding_extension.dart';
 import 'package:marketi/core/services/shared_prefs.dart';
 import 'package:marketi/core/utils/app_images.dart';
 import 'package:marketi/core/utils/app_strings.dart';
 import 'package:marketi/core/utils/on_generate_router.dart';
 import 'package:marketi/core/utils/storage_key.dart';
-import 'package:marketi/features/onboarding/views/widgets/custom_dot_indicator.dart';
 import 'package:marketi/features/onboarding/views/widgets/item_onboarding_widget.dart';
+import 'package:marketi/features/onboarding/views/widgets/list_generate_dot_indicator.dart';
 
 class OnboardingView extends StatefulWidget {
   const OnboardingView({super.key});
@@ -56,20 +55,9 @@ class _OnboardingViewState extends State<OnboardingView> {
                   item: _onboardingItems[index],
                   onPressed: () => _onNextPressed(index),
                 ),
-                Positioned(
-                  bottom: MediaQuery.sizeOf(context).height * 0.4,
-                  left: 0,
-                  right: 0,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(_onboardingItems.length, (
-                      dotIndex,
-                    ) {
-                      return CustomDotIndicator(
-                        isActive: dotIndex == _currentPage,
-                      ).paddingSymmetric(horizontalPadding: 4.0);
-                    }),
-                  ),
+                ListGenerateDotIndicator(
+                  length: _onboardingItems.length,
+                  currentPage: _currentPage,
                 ),
               ],
             );
