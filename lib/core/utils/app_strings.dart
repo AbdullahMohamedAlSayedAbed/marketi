@@ -28,6 +28,9 @@ abstract class AppStrings {
   static const String areYouNew = "Are you new in Marketi ";
   static const String confirmPassword = "Confirm Password";
   static const String forgotPassword = "Forgot Password?";
+  static const String savePassword = "Save Password";
+  static const String verifyCode = "Verify Code";
+  static const String resendCode = "Resend Code";
   static const String termsAndConditions = "Terms and Conditions";
   static const String privacyPolicy = "Privacy Policy";
   static const String contactUs = "Contact Us";

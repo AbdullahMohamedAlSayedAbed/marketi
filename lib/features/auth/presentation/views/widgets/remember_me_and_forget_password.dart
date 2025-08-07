@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marketi/core/utils/app_colors.dart';
 import 'package:marketi/core/utils/app_strings.dart';
+import 'package:marketi/core/utils/on_generate_router.dart';
 import 'package:marketi/core/utils/styles_app.dart';
 
 class RememberMeAndForgetPassword extends StatefulWidget {
@@ -30,7 +31,9 @@ class _RememberMeAndForgetPasswordState extends State<RememberMeAndForgetPasswor
         ),
         const Spacer(),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, AppRouter.forgotPasswordPhone);
+          },
           child: Text(
             AppStrings.forgotPassword,
             style: AppStyles().style12w500.copyWith(

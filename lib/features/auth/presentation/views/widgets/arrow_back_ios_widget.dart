@@ -13,14 +13,14 @@ class ArrowBackIosWidget extends StatelessWidget {
       child: Container(
         width: 48,
         height: 48,
-        clipBehavior: Clip.antiAlias,
+        alignment: Alignment.center,
         decoration: ShapeDecoration(
           shape: RoundedRectangleBorder(
             side: BorderSide(width: 1, color: AppColors.lightBlueColor),
             borderRadius: BorderRadius.circular(40),
           ),
         ),
-        child: Icon(Icons.arrow_back_ios, size: 18),
+        child: Icon(Icons.arrow_back_ios, size: 22),
       ),
     );
   }
