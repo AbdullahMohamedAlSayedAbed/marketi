@@ -7,7 +7,6 @@ import 'package:marketi/features/auth/presentation/views/login_view.dart';
 import 'package:marketi/features/auth/presentation/views/signup_view.dart';
 import 'package:marketi/features/auth/presentation/views/verification_code_email_view.dart';
 import 'package:marketi/features/auth/presentation/views/verification_code_view.dart';
-import 'package:marketi/features/auth/presentation/views/widgets/create_new_password_view_body.dart';
 import 'package:marketi/features/onboarding/views/onboarding_view.dart';
 import 'package:marketi/features/splash/views/splash_view.dart';
 

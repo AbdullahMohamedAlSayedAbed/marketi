@@ -48,18 +48,10 @@ class _OnboardingViewState extends State<OnboardingView> {
             setState(() => _currentPage = index);
           },
           itemBuilder: (context, index) {
-            return Stack(
-              alignment: Alignment.topCenter,
-              children: [
-                ItemOnboardingWidget(
-                  item: _onboardingItems[index],
-                  onPressed: () => _onNextPressed(index),
-                ),
-                ListGenerateDotIndicator(
-                  length: _onboardingItems.length,
-                  currentPage: _currentPage,
-                ),
-              ],
+            return ItemOnboardingWidget(
+              index:_currentPage,
+              item: _onboardingItems[index],
+              onPressed: () => _onNextPressed(index),
             );
           },
         ),

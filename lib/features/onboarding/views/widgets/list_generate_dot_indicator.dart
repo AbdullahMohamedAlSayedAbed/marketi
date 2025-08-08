@@ -14,18 +14,13 @@ class ListGenerateDotIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      bottom: MediaQuery.sizeOf(context).height * 0.4,
-      left: 0,
-      right: 0,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(length, (dotIndex) {
-          return CustomDotIndicator(
-            isActive: dotIndex == currentPage,
-          ).paddingSymmetric(horizontalPadding: 4.0);
-        }),
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(length, (dotIndex) {
+        return CustomDotIndicator(
+          isActive: dotIndex == currentPage,
+        ).paddingSymmetric(horizontalPadding: 4.0);
+      }),
     );
   }
 }
