@@ -1,13 +1,13 @@
 import 'package:equatable/equatable.dart';
 
-class SignUp extends Equatable {
+class SignUpModel extends Equatable {
   final String? name;
   final String? phone;
   final String? email;
   final String? password;
   final String? confirmPassword;
 
-  const SignUp({
+  const SignUpModel({
     this.name,
     this.phone,
     this.email,
@@ -15,7 +15,7 @@ class SignUp extends Equatable {
     this.confirmPassword,
   });
 
-  factory SignUp.fromJson(Map<String, dynamic> json) => SignUp(
+  factory SignUpModel.fromJson(Map<String, dynamic> json) => SignUpModel(
     name: json['name'] as String?,
     phone: json['phone'] as String?,
     email: json['email'] as String?,

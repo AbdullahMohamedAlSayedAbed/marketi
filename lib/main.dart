@@ -1,11 +1,14 @@
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:marketi/core/services/get_it_services.dart';
 import 'package:marketi/core/utils/app_colors.dart';
 import 'package:marketi/core/utils/on_generate_router.dart';
+import 'package:marketi/core/widgets/custom_bloc_opserver.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   setupServiceLocator();
+  Bloc.observer = CustomBlocObserver();
   runApp(const MarketApp());
 }
 

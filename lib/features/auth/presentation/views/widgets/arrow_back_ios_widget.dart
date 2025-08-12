@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketi/core/extension/navigate_extension.dart';
 import 'package:marketi/core/utils/app_colors.dart';
 
 class ArrowBackIosWidget extends StatelessWidget {
@@ -8,7 +9,7 @@ class ArrowBackIosWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pop(context);
+        context.pop();
       },
       child: Container(
         width: 48,

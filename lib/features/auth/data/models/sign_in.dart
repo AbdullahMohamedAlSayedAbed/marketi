@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-class SignIn extends Equatable {
+class SignInModel extends Equatable {
   final String? email;
   final String? password;
 
-  const SignIn({this.email, this.password});
+  const SignInModel({this.email, this.password});
 
-  factory SignIn.fromJson(Map<String, dynamic> json) => SignIn(
+  factory SignInModel.fromJson(Map<String, dynamic> json) => SignInModel(
     email: json['email'] as String?,
     password: json['password'] as String?,
   );

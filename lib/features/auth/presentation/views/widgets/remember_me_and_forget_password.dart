@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketi/core/extension/navigate_extension.dart';
 import 'package:marketi/core/utils/app_colors.dart';
 import 'package:marketi/core/utils/app_strings.dart';
 import 'package:marketi/core/utils/on_generate_router.dart';
@@ -32,7 +33,7 @@ class _RememberMeAndForgetPasswordState extends State<RememberMeAndForgetPasswor
         const Spacer(),
         TextButton(
           onPressed: () {
-            Navigator.pushNamed(context, AppRouter.forgotPasswordPhone);
+            context.pushNamed(AppRouter.forgotPasswordPhone);
           },
           child: Text(
             AppStrings.forgotPassword,

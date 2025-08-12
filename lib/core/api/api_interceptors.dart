@@ -6,10 +6,10 @@ class ApiInterceptors extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     options.headers['Content-Type'] = 'application/json';
-    options.headers[ApiKeys.token] =
-        CacheHelper().getData(key: ApiKeys.token) != null
-        ? 'Bearer ${CacheHelper().getData(key: ApiKeys.token)}'
-        : null;
+    // options.headers[ApiKeys.token] =
+    //     CacheHelper().getData(key: ApiKeys.token) != null
+    //     ? 'Bearer ${CacheHelper().getData(key: ApiKeys.token)}'
+    //     : null;
     super.onRequest(options, handler);
   }
 }

@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:marketi/core/extension/navigate_extension.dart';
 import 'package:marketi/core/services/shared_prefs.dart';
 import 'package:marketi/core/utils/app_images.dart';
 import 'package:marketi/core/utils/on_generate_router.dart';
@@ -26,9 +27,9 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     return Future.delayed(const Duration(seconds: 2), () {
       if (!mounted) return;
       if (isOnboardingCompleted) {
-        Navigator.pushReplacementNamed(context, AppRouter.login);
+        context.pushReplacementNamed(AppRouter.login);
       } else {
-        Navigator.pushReplacementNamed(context, AppRouter.onBoarding);
+        context.pushReplacementNamed(AppRouter.onBoarding);
       }
     });
   }
