@@ -49,7 +49,7 @@ class _OnboardingViewState extends State<OnboardingView> {
           },
           itemBuilder: (context, index) {
             return ItemOnboardingWidget(
-              index:_currentPage,
+              index: _currentPage,
               item: _onboardingItems[index],
               onPressed: () => _onNextPressed(index),
             );

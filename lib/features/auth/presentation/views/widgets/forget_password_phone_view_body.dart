@@ -21,7 +21,7 @@ class ForgetPasswordPhoneViewBody extends StatelessWidget {
           Column(
             spacing: 22,
             children: [
-              AppBarForgetPassword(title: 'Forgot Password',),
+              AppBarForgetPassword(title: 'Forgot Password'),
               SizedBox.shrink(),
               SvgPicture.asset(
                 Assets.imagesIllustrationForgotPasswordWithPhone,
@@ -34,9 +34,15 @@ class ForgetPasswordPhoneViewBody extends StatelessWidget {
                 ),
               ).paddingSymmetric(horizontalPadding: 34),
               FormFieldForgetPassPhone(),
-              CustomPrimaryButton(text: AppStrings.sendCode, onPressed: () {
-                Navigator.pushReplacementNamed(context, AppRouter.verificationCode);
-              }),
+              CustomPrimaryButton(
+                text: AppStrings.sendCode,
+                onPressed: () {
+                  Navigator.pushReplacementNamed(
+                    context,
+                    AppRouter.verificationCode,
+                  );
+                },
+              ),
               InkWell(
                 onTap: () {
                   Navigator.pushNamed(context, AppRouter.forgotPasswordEmail);

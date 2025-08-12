@@ -19,9 +19,7 @@ import 'package:marketi/features/auth/presentation/views/widgets/remember_me_and
 import 'package:marketi/features/auth/presentation/views/widgets/row_all_social_login_widget.dart';
 
 class LoginViewBody extends StatefulWidget {
-  const LoginViewBody({
-    super.key,
-  });
+  const LoginViewBody({super.key});
 
   @override
   State<LoginViewBody> createState() => _LoginViewBodyState();
@@ -68,21 +66,23 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             SizedBox(height: 6),
             const RememberMeAndForgetPassword(),
             SizedBox(height: 20),
-            CustomPrimaryButton(text: AppStrings.login, onPressed: () {
-              if (_formKey.currentState!.validate()) {
-                _formKey.currentState!.save();
-                SignInModel signInModel = SignInModel(
-                  email: _email,
-                  password: _password,
-                );
-                context.read<AuthCubit>().signIn(signInModel);
-              }
-              else {
-                setState(() {
-                  autovalidateMode = AutovalidateMode.always;
-                });
-              }
-            }),
+            CustomPrimaryButton(
+              text: AppStrings.login,
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  _formKey.currentState!.save();
+                  SignInModel signInModel = SignInModel(
+                    email: _email,
+                    password: _password,
+                  );
+                  context.read<AuthCubit>().signIn(signInModel);
+                } else {
+                  setState(() {
+                    autovalidateMode = AutovalidateMode.always;
+                  });
+                }
+              },
+            ),
             SizedBox(height: 14),
             Text(
               'Or Continue With',

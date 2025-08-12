@@ -46,11 +46,12 @@ abstract class AppRouter {
         );
       case verificationCodeEmail:
         return MaterialPageRoute(
-          builder: (context) => const VerificationCodeEmailView(),
+          builder: (context) =>
+              VerificationCodeEmailView(email: settings.arguments as String),
         );
       case createNewPassword:
         return MaterialPageRoute(
-          builder: (context) => const CreateNewPasswordView(),
+          builder: (context) => CreateNewPasswordView(email: settings.arguments as String?),
         );
 
       case congratulations:

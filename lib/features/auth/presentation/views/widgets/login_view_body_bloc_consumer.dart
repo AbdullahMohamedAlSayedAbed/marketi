@@ -14,15 +14,18 @@ class LoginViewBodyBlocConsumer extends StatelessWidget {
       listener: (context, state) {
         if (state is AuthFailure) {
           showCustomToast(message: state.message, type: ToastType.error);
-        }
-        else if (state is AuthSignedInSuccess) {
-          showCustomToast(message: "Login Successfully", type: ToastType.success);
+        } else if (state is AuthSignedInSuccess) {
+          showCustomToast(
+            message: "Login Successfully",
+            type: ToastType.success,
+          );
         }
       },
       builder: (context, state) {
         return CustomProgressHud(
           isLoading: state is AuthSignedInLoading,
-          child: LoginViewBody());
+          child: LoginViewBody(),
+        );
       },
     );
   }

@@ -9,7 +9,8 @@ class CustomTextFormField extends StatelessWidget {
     required this.textInputType,
     this.suffixIcon,
     this.onSaved,
-    this.obscureText = false, this.prefixIcon,
+    this.obscureText = false,
+    this.prefixIcon,
     this.validator,
   });
   final String hintText;
@@ -24,20 +25,20 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       obscureText: obscureText,
       onSaved: onSaved,
-      validator:validator?? (value) {
-        if (value == null || value.isEmpty) {
-          return 'هذا الحقل مطلوب';
-        }
-        return null;
-      },
-      
+      validator:
+          validator ??
+          (value) {
+            if (value == null || value.isEmpty) {
+              return 'هذا الحقل مطلوب';
+            }
+            return null;
+          },
+
       keyboardType: textInputType,
       decoration: InputDecoration(
         suffixIcon: suffixIcon,
         prefixIcon: Icon(prefixIcon, color: AppColors.darkPrimaryColor),
-        hintStyle: AppStyles().style12w400.copyWith(
-          color: AppColors.greyColor,
-        ),
+        hintStyle: AppStyles().style12w400.copyWith(color: AppColors.greyColor),
         hintText: hintText,
         filled: true,
         fillColor: const Color(0xFFF9FAFA),
@@ -51,7 +52,7 @@ class CustomTextFormField extends StatelessWidget {
   OutlineInputBorder buildBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(10),
-      borderSide:  BorderSide(width: 2, color:AppColors.lightBlueColor ),
+      borderSide: BorderSide(width: 2, color: AppColors.lightBlueColor),
     );
   }
 }

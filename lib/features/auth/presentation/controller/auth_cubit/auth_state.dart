@@ -8,9 +8,10 @@ sealed class AuthState extends Equatable {
 }
 
 final class AuthInitial extends AuthState {}
-final class AuthSignedInLoading extends AuthState {}
-final class AuthSignedUpLoading extends AuthState {}
 
+final class AuthSignedInLoading extends AuthState {}
+
+final class AuthSignedUpLoading extends AuthState {}
 
 final class AuthSignedInSuccess extends AuthState {
   final String token;
@@ -22,7 +23,6 @@ final class AuthSignedInSuccess extends AuthState {
 
 final class SignUpSuccess extends AuthState {
   const SignUpSuccess();
-
 }
 
 final class AuthFailure extends AuthState {
@@ -32,4 +32,3 @@ final class AuthFailure extends AuthState {
   @override
   List<Object> get props => [message];
 }
-

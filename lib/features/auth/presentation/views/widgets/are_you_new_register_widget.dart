@@ -6,9 +6,7 @@ import 'package:marketi/core/utils/on_generate_router.dart';
 import 'package:marketi/core/utils/styles_app.dart';
 
 class AreYouNewRegisterWidget extends StatelessWidget {
-  const AreYouNewRegisterWidget({
-    super.key,
-  });
+  const AreYouNewRegisterWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

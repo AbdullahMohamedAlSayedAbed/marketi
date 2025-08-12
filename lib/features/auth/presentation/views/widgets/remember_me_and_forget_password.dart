@@ -9,10 +9,12 @@ class RememberMeAndForgetPassword extends StatefulWidget {
   const RememberMeAndForgetPassword({super.key, this.onRememberMeChanged});
   final ValueChanged<bool>? onRememberMeChanged;
   @override
-  State<RememberMeAndForgetPassword> createState() => _RememberMeAndForgetPasswordState();
+  State<RememberMeAndForgetPassword> createState() =>
+      _RememberMeAndForgetPasswordState();
 }
 
-class _RememberMeAndForgetPasswordState extends State<RememberMeAndForgetPassword> {
+class _RememberMeAndForgetPasswordState
+    extends State<RememberMeAndForgetPassword> {
   bool isRememberMeChecked = false;
   @override
   Widget build(BuildContext context) {
@@ -20,12 +22,14 @@ class _RememberMeAndForgetPasswordState extends State<RememberMeAndForgetPasswor
       children: [
         Checkbox(
           activeColor: AppColors.primaryColor,
-          value: isRememberMeChecked, onChanged: (value) {
-          setState(() {
-            isRememberMeChecked = value ?? false;
-          });
-          widget.onRememberMeChanged?.call(isRememberMeChecked);
-        }),
+          value: isRememberMeChecked,
+          onChanged: (value) {
+            setState(() {
+              isRememberMeChecked = value ?? false;
+            });
+            widget.onRememberMeChanged?.call(isRememberMeChecked);
+          },
+        ),
         Text(
           AppStrings.rememberMe,
           style: AppStyles().style12w400.copyWith(color: AppColors.navyColor),

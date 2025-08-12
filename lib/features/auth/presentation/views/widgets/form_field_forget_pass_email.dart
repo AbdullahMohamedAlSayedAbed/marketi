@@ -4,8 +4,8 @@ import 'package:marketi/core/widgets/custom_text_form_field.dart';
 import 'package:marketi/features/auth/presentation/views/widgets/title_text_sign_up.dart';
 
 class FormFieldForgetPassEmail extends StatelessWidget {
-  const FormFieldForgetPassEmail({super.key});
-
+  const FormFieldForgetPassEmail({super.key, this.onSaved});
+  final Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -16,6 +16,7 @@ class FormFieldForgetPassEmail extends StatelessWidget {
           prefixIcon: Icons.email,
           hintText: 'You@gmail.com',
           textInputType: TextInputType.emailAddress,
+          onSaved: onSaved,
         ),
       ],
     );

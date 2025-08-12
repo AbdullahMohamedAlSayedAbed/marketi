@@ -14,11 +14,11 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> signIn(SignInModel signInModel) async {
     emit(AuthSignedInLoading());
 
-      final result = await authRepo.signIn(signInModel);
-      result.fold(
-        (error) => emit(AuthFailure(error.errorModel.message)),
-        (token) => emit(AuthSignedInSuccess(token)),
-      );
+    final result = await authRepo.signIn(signInModel);
+    result.fold(
+      (error) => emit(AuthFailure(error.errorModel.message)),
+      (token) => emit(AuthSignedInSuccess(token)),
+    );
   }
 
   Future<void> signUp(SignUpModel signUpModel) async {

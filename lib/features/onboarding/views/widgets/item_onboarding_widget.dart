@@ -8,7 +8,12 @@ import 'package:marketi/core/widgets/custom_primary_button.dart';
 import 'package:marketi/features/onboarding/views/widgets/list_generate_dot_indicator.dart';
 
 class ItemOnboardingWidget extends StatelessWidget {
-  const ItemOnboardingWidget({super.key, required this.item, this.onPressed, required this.index});
+  const ItemOnboardingWidget({
+    super.key,
+    required this.item,
+    this.onPressed,
+    required this.index,
+  });
   final ({String description, String image, String textBut, String title}) item;
   final void Function()? onPressed;
   final int index;
@@ -19,10 +24,7 @@ class ItemOnboardingWidget extends StatelessWidget {
         Flexible(child: SizedBox(height: 120)),
         SvgPicture.asset(item.image),
         SizedBox(height: 40),
-        ListGenerateDotIndicator(
-          length: 3,
-          currentPage: index,
-        ),
+        ListGenerateDotIndicator(length: 3, currentPage: index),
         SizedBox(height: 24),
         Text(
           item.title,

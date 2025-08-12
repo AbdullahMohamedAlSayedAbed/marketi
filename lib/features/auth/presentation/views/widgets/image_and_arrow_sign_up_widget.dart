@@ -3,9 +3,7 @@ import 'package:marketi/core/utils/app_images.dart';
 import 'package:marketi/features/auth/presentation/views/widgets/arrow_back_ios_widget.dart';
 
 class ImageAndArrowSignUpWidget extends StatelessWidget {
-  const ImageAndArrowSignUpWidget({
-    super.key,
-  });
+  const ImageAndArrowSignUpWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

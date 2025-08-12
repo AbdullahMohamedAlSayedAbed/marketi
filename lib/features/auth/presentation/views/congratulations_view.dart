@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:marketi/constant.dart';
+import 'package:marketi/core/extension/navigate_extension.dart';
 import 'package:marketi/core/extension/padding_extension.dart';
 import 'package:marketi/core/utils/app_colors.dart';
 import 'package:marketi/core/utils/app_images.dart';
@@ -16,14 +17,15 @@ class CongratulationsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
-          SafeArea(
-            child: Column(
+      body: SafeArea(
+        child:
+            Column(
               spacing: 22,
               children: [
                 Align(
                   alignment: Alignment.topLeft,
-                  child: ArrowBackIosWidget()),
+                  child: ArrowBackIosWidget(),
+                ),
                 SizedBox.shrink(),
                 SvgPicture.asset(Assets.imagesIllustrationCongratulations),
                 Text(
@@ -43,7 +45,7 @@ class CongratulationsView extends StatelessWidget {
                 CustomPrimaryButton(
                   text: AppStrings.login,
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, AppRouter.login);
+                    context.pushNamedAndRemoveUntil(AppRouter.login);
                   },
                 ),
               ],
@@ -51,7 +53,7 @@ class CongratulationsView extends StatelessWidget {
               verticalPadding: kTopPadding,
               horizontalPadding: kHorizontalPadding + 1,
             ),
-          ),
+      ),
     );
   }
 }

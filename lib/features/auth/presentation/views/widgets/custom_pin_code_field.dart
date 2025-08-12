@@ -18,7 +18,7 @@ class CustomPinCodeField extends StatelessWidget {
       appContext: context,
       controller: controller,
       mainAxisAlignment: MainAxisAlignment.center,
-      length: 4,
+      length: 6,
       autoDisposeControllers: false,
       obscureText: false,
       animationType: AnimationType.none,
@@ -41,7 +41,7 @@ class CustomPinCodeField extends StatelessWidget {
       ),
       enableActiveFill: true,
       onCompleted: onCompleted,
-      
+
       onChanged: (value) {},
     );
   }
