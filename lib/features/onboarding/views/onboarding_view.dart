@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketi/core/extension/navigate_extension.dart';
 import 'package:marketi/core/services/shared_prefs.dart';
 import 'package:marketi/core/utils/app_images.dart';
 import 'package:marketi/core/utils/app_strings.dart';
@@ -24,12 +25,12 @@ class _OnboardingViewState extends State<OnboardingView> {
 
   void _onNextPressed(int index) {
     if (index == _onboardingItems.length - 1) {
-      Navigator.pushReplacementNamed(context, AppRouter.login);
+      context.pushReplacementNamed( AppRouter.login);
       CacheHelper().put(key: StorageKey.onboarding, value: true);
     } else {
       _controller.animateToPage(
         index + 1,
-        duration: const Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 600),
         curve: Curves.easeInOut,
       );
     }

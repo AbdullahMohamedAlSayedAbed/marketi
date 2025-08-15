@@ -1,12 +1,16 @@
+import 'dart:convert';
+
 import 'package:dartz/dartz.dart';
 import 'package:marketi/core/api/api_consumer.dart';
 import 'package:marketi/core/api/end_points.dart';
 import 'package:marketi/core/error/error_model.dart';
 import 'package:marketi/core/error/server_exception.dart';
 import 'package:marketi/core/services/shared_prefs.dart';
+import 'package:marketi/core/utils/storage_key.dart';
 import 'package:marketi/features/auth/data/models/sign_in.dart';
 import 'package:marketi/features/auth/data/models/sign_up.dart';
 import 'package:marketi/features/auth/data/models/update_password_model.dart';
+import 'package:marketi/features/auth/data/models/user_data/user.dart';
 import 'package:marketi/features/auth/data/repo/auth_repo.dart';
 
 class AuthRepoImpl implements AuthRepo {
@@ -25,6 +29,8 @@ class AuthRepoImpl implements AuthRepo {
         key: ApiKeys.token,
         value: response[ApiKeys.token],
       );
+      final user = User.fromJson(response[ApiKeys.user]);
+      await saveUserData(user: user);
       return Right(response[ApiKeys.token]);
     } on ServerException catch (e) {
       return Left(e);
@@ -38,6 +44,11 @@ class AuthRepoImpl implements AuthRepo {
         ),
       );
     }
+  }
+
+  Future<void> saveUserData({required User user}) async {
+    var jsonData = jsonEncode(user.toJson());
+    await CacheHelper().saveData(key: StorageKey.userData, value: jsonData);
   }
 
   @override

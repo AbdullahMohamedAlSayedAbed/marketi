@@ -10,4 +10,5 @@ abstract class AppColors {
   static const Color navyColor = Color(0xFF51526C);
   static const Color whiteColor = Colors.white;
   static const Color greyColor = Color(0xFF919AAB);
+  static const Color lightGreyColor = Color(0xB2B2CCFF);
 }
