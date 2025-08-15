@@ -5,7 +5,6 @@ import 'package:marketi/core/utils/app_strings.dart';
 import 'package:marketi/core/utils/on_generate_router.dart';
 import 'package:marketi/core/utils/storage_key.dart';
 import 'package:marketi/features/onboarding/views/widgets/item_onboarding_widget.dart';
-import 'package:marketi/features/onboarding/views/widgets/list_generate_dot_indicator.dart';
 
 class OnboardingView extends StatefulWidget {
   const OnboardingView({super.key});

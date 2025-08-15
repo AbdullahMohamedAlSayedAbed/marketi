@@ -15,6 +15,7 @@ abstract class AppRouter {
   static const String onBoarding = 'onBoarding';
   static const String login = 'login';
   static const String signUp = 'signUp';
+  static const String home = 'home';
   static const String forgotPasswordPhone = 'forgotPasswordWithPhone';
   static const String forgotPasswordEmail = 'forgotPasswordWithEmail';
   static const String createNewPassword = 'Create New Password';

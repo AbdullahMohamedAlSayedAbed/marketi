@@ -43,16 +43,7 @@ class AuthRepoImpl implements AuthRepo {
   @override
   Future<Either<ServerException, void>> signUp(SignUpModel signUp) async {
     try {
-      final response = await apiConsumer.post(
-        EndPoints.signUp,
-        data: signUp.toJson(),
-      );
-      if (response[ApiKeys.token] != null) {
-        CacheHelper().saveData(
-          key: ApiKeys.token,
-          value: response[ApiKeys.token],
-        );
-      }
+      await apiConsumer.post(EndPoints.signUp, data: signUp.toJson());
       return Right(null);
     } on ServerException catch (e) {
       return Left(e);

@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:marketi/core/api/end_points.dart';
 import 'package:marketi/core/extension/navigate_extension.dart';
 import 'package:marketi/core/services/shared_prefs.dart';
 import 'package:marketi/core/utils/app_images.dart';
@@ -24,9 +25,12 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     await CacheHelper().init();
     final bool isOnboardingCompleted =
         CacheHelper().getData(key: StorageKey.onboarding) ?? false;
+    final String? isLogin = CacheHelper().getData(key: ApiKeys.token);
     return Future.delayed(const Duration(seconds: 2), () {
       if (!mounted) return;
-      if (isOnboardingCompleted) {
+      if (isLogin != null) {
+        context.pushReplacementNamed(AppRouter.home);
+      } else if (isOnboardingCompleted) {
         context.pushReplacementNamed(AppRouter.login);
       } else {
         context.pushReplacementNamed(AppRouter.onBoarding);
