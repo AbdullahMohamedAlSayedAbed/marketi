@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:marketi/core/utils/app_colors.dart';
 import 'package:marketi/core/utils/styles_app.dart';
 import 'package:marketi/core/widgets/favorite_product_item_widget.dart';
-import 'package:marketi/features/home/presentation/views/home_view.dart';
 import 'package:marketi/features/home/presentation/views/widgets/add_button_item_product.dart';
 
 class ItemProductCardWidget extends StatelessWidget {
