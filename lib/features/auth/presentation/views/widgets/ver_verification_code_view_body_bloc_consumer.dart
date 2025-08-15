@@ -23,8 +23,10 @@ class VerVerificationCodeViewBodyBlocConsumer extends StatelessWidget {
           showCustomToast(message: state.message, type: ToastType.error);
         } else if (state is ResetPasswordEmailSuccess) {
           showCustomToast(message: state.message, type: ToastType.success);
-          context.pushReplacementNamed(AppRouter.createNewPassword,
-              arguments: emailOrPhone);
+          context.pushReplacementNamed(
+            AppRouter.createNewPassword,
+            arguments: emailOrPhone,
+          );
         }
       },
       builder: (context, state) {

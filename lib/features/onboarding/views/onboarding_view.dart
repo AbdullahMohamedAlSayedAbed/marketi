@@ -25,7 +25,7 @@ class _OnboardingViewState extends State<OnboardingView> {
 
   void _onNextPressed(int index) {
     if (index == _onboardingItems.length - 1) {
-      context.pushReplacementNamed( AppRouter.login);
+      context.pushReplacementNamed(AppRouter.login);
       CacheHelper().put(key: StorageKey.onboarding, value: true);
     } else {
       _controller.animateToPage(

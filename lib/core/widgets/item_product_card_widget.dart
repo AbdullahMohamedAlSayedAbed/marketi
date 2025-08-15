@@ -51,13 +51,17 @@ class ItemProductCardWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                Positioned(right: 10, top: 8, child: FavoriteProductItemWidget()),
+                Positioned(
+                  right: 10,
+                  top: 8,
+                  child: FavoriteProductItemWidget(),
+                ),
               ],
             ),
           ),
 
           Padding(
-            padding: const EdgeInsets.only(right: 8,left: 8, top: 4),
+            padding: const EdgeInsets.only(right: 8, left: 8, top: 4),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -92,10 +96,8 @@ class ItemProductCardWidget extends StatelessWidget {
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.center,
-            child: AddButtonItemProduct()),
-            SizedBox(height: 6),
+          Align(alignment: Alignment.center, child: AddButtonItemProduct()),
+          SizedBox(height: 6),
         ],
       ),
     );

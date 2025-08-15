@@ -17,13 +17,9 @@ class PasswordConfirmCreateNewPassword extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TitleTextSignUp(title: AppStrings.password),
-        PasswordField(
-          onSaved: onSavedPassword,
-        ),
+        PasswordField(onSaved: onSavedPassword),
         TitleTextSignUp(title: AppStrings.confirmPassword),
-        PasswordField(
-          onSaved: onSavedPasswordConfirm,
-        ),
+        PasswordField(onSaved: onSavedPasswordConfirm),
       ],
     );
   }

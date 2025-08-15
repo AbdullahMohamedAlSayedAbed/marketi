@@ -24,4 +24,7 @@ abstract class ApiKeys {
   static const String address = "address";
   static const String confirmPassword = "confirmPassword";
   static const String location = "location";
+  static const String allProducts = "home/products";
+  static const String categories = "home/categories";
+  static const String brands = "home/brands";
 }

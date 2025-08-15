@@ -14,11 +14,14 @@ class CustomSearchField extends StatelessWidget {
       decoration: InputDecoration(
         suffixIcon: Align(
           alignment: Alignment.centerRight,
-          child: MenuSearchFieldWidget()),
-        prefixIcon: Icon(Icons.search, color: AppColors.darkPrimaryColor,size: 30,),
-        hintStyle: AppStyles().style16w400.copyWith(
-          color: AppColors.greyColor,
+          child: MenuSearchFieldWidget(),
         ),
+        prefixIcon: Icon(
+          Icons.search,
+          color: AppColors.darkPrimaryColor,
+          size: 30,
+        ),
+        hintStyle: AppStyles().style16w400.copyWith(color: AppColors.greyColor),
         hintText: 'What are you looking for ? ',
         border: buildBorder(),
         enabledBorder: buildBorder(),
@@ -26,10 +29,11 @@ class CustomSearchField extends StatelessWidget {
       ),
     );
   }
+
   OutlineInputBorder buildBorder() {
-  return OutlineInputBorder(
-    borderRadius: BorderRadius.circular(14),
-    borderSide: BorderSide(width: 2, color: AppColors.lightGreyColor),
-  );
-}
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(14),
+      borderSide: BorderSide(width: 2, color: AppColors.lightGreyColor),
+    );
+  }
 }

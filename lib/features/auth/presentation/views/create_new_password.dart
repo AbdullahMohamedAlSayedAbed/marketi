@@ -12,9 +12,9 @@ class CreateNewPasswordView extends StatelessWidget {
     return Scaffold(
       body: BlocProvider(
         create: (context) => getIt<ResetPasswordEmailCubit>(),
-        child: SafeArea(child: CreateNewPasswordViewBodyBlocConsumer(
-          email: email!,
-        )),
+        child: SafeArea(
+          child: CreateNewPasswordViewBodyBlocConsumer(email: email!),
+        ),
       ),
     );
   }

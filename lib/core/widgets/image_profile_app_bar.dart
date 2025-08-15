@@ -22,7 +22,7 @@ class ImageProfileAppBar extends StatelessWidget {
         child: imageUrl == null
             ? SvgPicture.asset(
                 Assets.imagesEllipse1,
-                fit: BoxFit.cover,
+                // fit: BoxFit.cover,
               )
             : CustomNetworkImage(imageUrl: imageUrl!),
       ),

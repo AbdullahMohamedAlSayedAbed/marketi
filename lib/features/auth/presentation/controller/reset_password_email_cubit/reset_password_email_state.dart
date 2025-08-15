@@ -28,4 +28,5 @@ final class ResetPasswordEmailError extends ResetPasswordEmailState {
 }
 
 final class ResetPasswordCodeLoading extends ResetPasswordEmailState {}
+
 final class ResetPasswordUpdateLoading extends ResetPasswordEmailState {}

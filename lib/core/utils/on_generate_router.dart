@@ -53,12 +53,11 @@ abstract class AppRouter {
         );
       case createNewPassword:
         return MaterialPageRoute(
-          builder: (context) => CreateNewPasswordView(email: settings.arguments as String?),
+          builder: (context) =>
+              CreateNewPasswordView(email: settings.arguments as String?),
         );
       case home:
-        return MaterialPageRoute(
-          builder: (context) => HomeView(),
-        );
+        return MaterialPageRoute(builder: (context) => HomeView());
 
       case congratulations:
         return MaterialPageRoute(

@@ -12,7 +12,9 @@ abstract class AuthRepo {
     String code,
     String emailOrPhone,
   );
-  Future<Either<ServerException, String>> updatePassword(UpdatePasswordModel updatePassword);
+  Future<Either<ServerException, String>> updatePassword(
+    UpdatePasswordModel updatePassword,
+  );
 
   // Future<void> signOut();
   // Future<bool> isSignedIn();

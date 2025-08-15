@@ -8,7 +8,7 @@ class AddButtonItemProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 4, horizontal:40),
+      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 40),
       decoration: ShapeDecoration(
         color: Colors.white,
         shape: RoundedRectangleBorder(

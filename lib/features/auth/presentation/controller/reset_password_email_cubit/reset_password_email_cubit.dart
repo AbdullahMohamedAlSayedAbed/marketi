@@ -28,13 +28,10 @@ class ResetPasswordEmailCubit extends Cubit<ResetPasswordEmailState> {
       (message) => emit(ResetPasswordEmailSuccess(message)),
     );
   }
-  void updatePassword({
-    required UpdatePasswordModel updatePassword,
-  }) async {
+
+  void updatePassword({required UpdatePasswordModel updatePassword}) async {
     emit(ResetPasswordUpdateLoading());
-    final result = await authRepo.updatePassword(
-      updatePassword,
-    );
+    final result = await authRepo.updatePassword(updatePassword);
     result.fold(
       (error) => emit(ResetPasswordEmailError(error.errorModel.message)),
       (message) => emit(ResetPasswordEmailSuccess(message)),

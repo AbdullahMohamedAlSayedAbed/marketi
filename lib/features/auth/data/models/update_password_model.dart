@@ -7,8 +7,6 @@ class UpdatePasswordModel extends Equatable {
 
   const UpdatePasswordModel({this.email, this.password, this.confirmPassword});
 
-
-
   Map<String, dynamic> toJson() => {
     'email': email,
     'password': password,
