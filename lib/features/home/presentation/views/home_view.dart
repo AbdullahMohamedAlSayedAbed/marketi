@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marketi/core/extension/navigate_extension.dart';
 import 'package:marketi/core/functions/get_user.dart';
 import 'package:marketi/core/services/get_it_services.dart';
 import 'package:marketi/core/utils/app_colors.dart';
+import 'package:marketi/core/utils/on_generate_router.dart';
 import 'package:marketi/core/widgets/image_profile_app_bar.dart';
 import 'package:marketi/features/home/presentation/controllers/get_all_product_cubit/get_all_product_cubit.dart';
 import 'package:marketi/features/home/presentation/controllers/get_brands_cubit/get_brands_cubit.dart';
@@ -29,7 +31,12 @@ class HomeView extends StatelessWidget {
             },
           ),
         ],
-        leading: ImageProfileAppBar(),
+        leading: InkWell(
+          onTap: () {
+            context.pushNamed(AppRouter.profile);
+          },
+          child: ImageProfileAppBar(),
+        ),
       ),
       body: MultiBlocProvider(
         providers: [
@@ -39,7 +46,9 @@ class HomeView extends StatelessWidget {
           BlocProvider(
             create: (context) => getIt<GetBrandsCubit>()..getBrands(),
           ),
-          BlocProvider(create: (context) => getIt<GetAllProductCubit>()..getAllProducts()),
+          BlocProvider(
+            create: (context) => getIt<GetAllProductCubit>()..getAllProducts(),
+          ),
         ],
         child: SafeArea(child: HomeViewBody()),
       ),

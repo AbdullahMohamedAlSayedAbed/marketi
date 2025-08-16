@@ -6,13 +6,15 @@ import 'package:marketi/core/widgets/custom_network_image.dart'
     show CustomNetworkImage;
 
 class ImageProfileAppBar extends StatelessWidget {
-  const ImageProfileAppBar({super.key, this.imageUrl});
+  const ImageProfileAppBar({super.key, this.imageUrl,  this.widthAndHeight});
   final String? imageUrl;
+  final double? widthAndHeight;
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 44,
-      height: 44,
+      width:widthAndHeight?? 44,
+      height:widthAndHeight?? 44,
+      padding: EdgeInsets.all(1),
       decoration: ShapeDecoration(
         shape: OvalBorder(
           side: BorderSide(color: AppColors.primaryColor, width: 4),
@@ -22,7 +24,6 @@ class ImageProfileAppBar extends StatelessWidget {
         child: imageUrl == null
             ? SvgPicture.asset(
                 Assets.imagesEllipse1,
-                // fit: BoxFit.cover,
               )
             : CustomNetworkImage(imageUrl: imageUrl!),
       ),
