@@ -8,6 +8,7 @@ import 'package:marketi/features/auth/presentation/views/signup_view.dart';
 import 'package:marketi/features/auth/presentation/views/verification_code_email_view.dart';
 import 'package:marketi/features/auth/presentation/views/verification_code_view.dart';
 import 'package:marketi/features/home/presentation/views/home_view.dart';
+import 'package:marketi/features/home/presentation/views/popular_product_view.dart';
 import 'package:marketi/features/onboarding/views/onboarding_view.dart';
 import 'package:marketi/features/splash/views/splash_view.dart';
 
@@ -24,6 +25,7 @@ abstract class AppRouter {
   static const String changePassword = 'changePasswordView';
   static const String verificationCode = 'verificationCodeView';
   static const String verificationCodeEmail = 'verificationCodeEmail';
+  static const String popularProductView = 'PopularProductView';
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case splash:
@@ -62,6 +64,10 @@ abstract class AppRouter {
       case congratulations:
         return MaterialPageRoute(
           builder: (context) => const CongratulationsView(),
+        );
+      case popularProductView:
+        return MaterialPageRoute(
+          builder: (context) => const PopularProductView(),
         );
 
       default:

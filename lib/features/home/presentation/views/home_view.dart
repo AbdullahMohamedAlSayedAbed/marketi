@@ -33,9 +33,13 @@ class HomeView extends StatelessWidget {
       ),
       body: MultiBlocProvider(
         providers: [
-          BlocProvider(create: (context) => getIt<GetGategoryCubit>()..getCategories()),
-          BlocProvider(create: (context) => getIt<GetBrandsCubit>()..getBrands()),
-          BlocProvider(create: (context) => getIt<GetAllProductCubit>()),
+          BlocProvider(
+            create: (context) => getIt<GetGategoryCubit>()..getCategories(),
+          ),
+          BlocProvider(
+            create: (context) => getIt<GetBrandsCubit>()..getBrands(),
+          ),
+          BlocProvider(create: (context) => getIt<GetAllProductCubit>()..getAllProducts()),
         ],
         child: SafeArea(child: HomeViewBody()),
       ),

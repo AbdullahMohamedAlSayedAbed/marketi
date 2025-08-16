@@ -3,8 +3,9 @@ import 'package:marketi/core/utils/app_colors.dart';
 import 'package:marketi/core/utils/styles_app.dart';
 
 class ProductTitle extends StatelessWidget {
-  const ProductTitle({super.key, required this.title});
+  const ProductTitle({super.key, required this.title, this.onTap});
   final String title;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -16,10 +17,13 @@ class ProductTitle extends StatelessWidget {
             color: AppColors.darkPrimaryColor,
           ),
         ),
-        Text(
-          'View all',
-          style: AppStyles().style16w500.copyWith(
-            color: AppColors.primaryColor,
+        InkWell(
+          onTap: onTap,
+          child: Text(
+            'View all',
+            style: AppStyles().style16w500.copyWith(
+              color: AppColors.primaryColor,
+            ),
           ),
         ),
       ],
