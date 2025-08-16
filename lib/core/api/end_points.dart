@@ -6,6 +6,7 @@ abstract class EndPoints {
   static const String resetPassCode = "auth/resetPassCode";
   static const String activeResetPass = "auth/activeResetPass";
   static const String userData = "portfoilo/userData";
+  static const String addImage = "portfoilo/addImage";
   static String getUserById(int id) => "user/get-user/$id";
 }
 

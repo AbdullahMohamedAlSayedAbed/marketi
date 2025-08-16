@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:marketi/constant.dart';
 import 'package:marketi/core/extension/padding_extension.dart';
 import 'package:marketi/features/profile/presentation/views/widgets/row_item_profile_widget.dart';
-import 'package:marketi/features/profile/presentation/views/widgets/stack_image_profile_view.dart';
+import 'package:marketi/features/profile/presentation/views/widgets/stack_data_user_profile_view.dart';
 
 class ProfileViewBody extends StatelessWidget {
   const ProfileViewBody({super.key});
@@ -21,15 +21,14 @@ class ProfileViewBody extends StatelessWidget {
     ),
     (icon: Icons.star_border_outlined, title: 'Rate Us', onTap: () {}),
     (icon: Icons.feedback_outlined, title: 'Provide Feedback', onTap: () {}),
-    (icon: Icons.logout_outlined, title: 'Log Out', onTap: () {
-    }),
+    (icon: Icons.logout_outlined, title: 'Log Out', onTap: () {}),
   ];
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        StackImageProfileView(),
+        StackDataUserProfileView(),
         SizedBox(height: 30),
         ...RowItemProfileList.map(
           (e) => RowItemProfileWidget(

@@ -25,7 +25,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   final _formKey = GlobalKey<FormState>();
   AutovalidateMode? autovalidateMode = AutovalidateMode.disabled;
   String? _fullName;
-  String? _username;
+  String? _userName;
   String? _phoneNumber;
   String? _email;
   String? _password;
@@ -56,7 +56,7 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               hintText: AppStrings.username,
               textInputType: TextInputType.name,
               onSaved: (value) {
-                _username = value!.trim();
+                _userName = value!.trim();
               },
             ),
             TitleTextSignUp(title: AppStrings.phoneNumber),
