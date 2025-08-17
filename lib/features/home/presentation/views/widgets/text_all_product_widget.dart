@@ -4,14 +4,12 @@ import 'package:marketi/core/utils/app_colors.dart';
 import 'package:marketi/core/utils/styles_app.dart';
 
 class TextAllProductWidget extends StatelessWidget {
-  const TextAllProductWidget({
-    super.key,
-  });
-
+  const TextAllProductWidget({super.key, required this.title});
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Text(
-      'All Products',
+      title,
       style: AppStyles().style20w600.copyWith(
         color: AppColors.darkPrimaryColor,
       ),

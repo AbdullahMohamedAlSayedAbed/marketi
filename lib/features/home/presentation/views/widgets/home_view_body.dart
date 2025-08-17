@@ -44,7 +44,9 @@ class HomeViewBody extends StatelessWidget {
                   return const Center(child: CircularProgressIndicator());
                 },
               ),
-              ProductTitle(title: 'Category'),
+              ProductTitle(title: 'Category',onTap: () {
+                context.pushNamed(AppRouter.category);
+              },),
               CategoryItemBlocBuilder(),
               BlocBuilder<GetAllProductCubit, GetAllProductState>(
                 builder: (context, state) {

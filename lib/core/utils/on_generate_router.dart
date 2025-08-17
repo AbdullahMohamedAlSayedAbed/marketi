@@ -9,6 +9,7 @@ import 'package:marketi/features/auth/presentation/views/verification_code_email
 import 'package:marketi/features/auth/presentation/views/verification_code_view.dart';
 import 'package:marketi/features/details/presentation/views/details_product_view.dart';
 import 'package:marketi/features/home/data/models/all_product_model/product.dart';
+import 'package:marketi/features/home/presentation/views/categorey_view.dart';
 import 'package:marketi/features/home/presentation/views/home_view.dart';
 import 'package:marketi/features/home/presentation/views/popular_product_view.dart';
 import 'package:marketi/features/onboarding/views/onboarding_view.dart';
@@ -31,6 +32,7 @@ abstract class AppRouter {
   static const String popularProductView = 'PopularProductView';
   static const String profile = 'profile';
   static const String details = 'details';
+  static const String category = 'Category';
   
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -83,6 +85,11 @@ abstract class AppRouter {
         return MaterialPageRoute(
           builder: (context) =>  DetailsProductView(
             product: settings.arguments as Product,
+          ),
+        );
+      case category:
+        return MaterialPageRoute(
+          builder: (context) =>  CategoryView(
           ),
         );
 

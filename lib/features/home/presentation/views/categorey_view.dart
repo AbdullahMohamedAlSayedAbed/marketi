@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marketi/core/functions/build_app_bar.dart';
+import 'package:marketi/core/services/get_it_services.dart';
+import 'package:marketi/features/home/presentation/controllers/get_gategory_cubit/get_gategory_cubit.dart';
+import 'package:marketi/features/home/presentation/views/widgets/category_view_body.dart';
+
+class CategoryView extends StatelessWidget {
+  const CategoryView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: buildAppBar(title: 'Categories'),
+      body: BlocProvider(
+        create: (context) => getIt<GetGategoryCubit>()..getCategories(),
+        child: CategoryViewBody(),
+      ),
+    );
+  }
+}
