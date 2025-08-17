@@ -7,8 +7,9 @@ class MenuSearchFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 12),
-      padding: EdgeInsets.all(2),
+      width: 24,
+      height: 24,
+      margin: EdgeInsets.all(8),
       decoration: ShapeDecoration(
         color: Colors.white,
         shape: RoundedRectangleBorder(

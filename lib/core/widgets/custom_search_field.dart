@@ -12,16 +12,13 @@ class CustomSearchField extends StatelessWidget {
       onChanged: onChanged,
       keyboardType: TextInputType.text,
       decoration: InputDecoration(
-        suffixIcon: Align(
-          alignment: Alignment.centerRight,
-          child: MenuSearchFieldWidget(),
-        ),
+        suffixIcon: MenuSearchFieldWidget(),
         prefixIcon: Icon(
           Icons.search,
           color: AppColors.darkPrimaryColor,
           size: 30,
         ),
-        hintStyle: AppStyles().style16w400.copyWith(color: AppColors.greyColor),
+        hintStyle: AppStyles().style16w400,
         hintText: 'What are you looking for ? ',
         border: buildBorder(),
         enabledBorder: buildBorder(),
