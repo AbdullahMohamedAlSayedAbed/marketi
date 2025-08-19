@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marketi/core/widgets/custom_shimmer_loading.dart';
+import 'package:marketi/features/home/data/models/dummy/categories_dummy.dart';
 import 'package:marketi/features/home/presentation/controllers/get_gategory_cubit/get_gategory_cubit.dart';
 import 'package:marketi/features/home/presentation/views/widgets/category_item_widget.dart';
 
@@ -23,7 +25,16 @@ class CategoryItemBlocBuilder extends StatelessWidget {
             }),
           );
         }
-        return Center(child: const CircularProgressIndicator());
+        return CustomShimmerLoading(
+          child: Wrap(
+            spacing: 16,
+            runSpacing: 8,
+            alignment: WrapAlignment.spaceBetween,
+            children: CategoriesDummyList.map(
+              (e) => CategoryItemWidget(category: e),
+            ).toList(),
+          ),
+        );
       },
     );
   }

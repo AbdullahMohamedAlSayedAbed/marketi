@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketi/core/utils/app_colors.dart';
 import 'package:marketi/core/utils/styles_app.dart';
 
 class ProductRating extends StatelessWidget {
@@ -12,7 +13,7 @@ class ProductRating extends StatelessWidget {
         Row(
           children: List.generate(
             5,
-            (index) => const Icon(Icons.star, size: 18, color: Colors.amber),
+            (index) =>  Icon(Icons.star, size: 18, color:index < rating.toInt() ? Colors.amber : AppColors.lightGreyColor),
           ),
         ),
         const SizedBox(width: 4),

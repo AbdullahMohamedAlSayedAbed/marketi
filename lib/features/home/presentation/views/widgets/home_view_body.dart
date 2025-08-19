@@ -6,8 +6,10 @@ import 'package:marketi/core/extension/padding_extension.dart';
 import 'package:marketi/core/utils/on_generate_router.dart';
 import 'package:marketi/core/widgets/custom_error_widget.dart';
 import 'package:marketi/core/widgets/custom_search_field.dart';
+import 'package:marketi/core/widgets/custom_shimmer_loading.dart';
+import 'package:marketi/features/home/data/models/dummy/all_product_dummy_data.dart';
 import 'package:marketi/features/home/presentation/controllers/get_all_product_cubit/get_all_product_cubit.dart';
-import 'package:marketi/features/home/presentation/views/widgets/brands_list_view.dart';
+import 'package:marketi/features/home/presentation/views/widgets/brands_column_widget.dart';
 import 'package:marketi/features/home/presentation/views/widgets/carousel_slider_offer_home_widget.dart';
 import 'package:marketi/features/home/presentation/views/widgets/category_item_bloc_builder.dart';
 import 'package:marketi/features/home/presentation/views/widgets/list_view_separated_item_product.dart';
@@ -41,13 +43,21 @@ class HomeViewBody extends StatelessWidget {
                       allProductModel: state.allProductModel,
                     );
                   }
-                  return const Center(child: CircularProgressIndicator());
+                  return CustomShimmerLoading(
+                    child: ListViewSeparatedItemProduct(
+                      title: 'Popular Product',
+                      allProductModel: allProductDummy,
+                    ),
+                  );
                 },
               ),
-              ProductTitle(title: 'Category',onTap: () {
-                context.pushNamed(AppRouter.category);
-              },),
-              CategoryItemBlocBuilder(),
+              ProductTitle(
+                title: 'Category',
+                onTap: () {
+                  context.pushNamed(AppRouter.category);
+                },
+              ),
+              const CategoryItemBlocBuilder(),
               BlocBuilder<GetAllProductCubit, GetAllProductState>(
                 builder: (context, state) {
                   if (state is GetAllProductError) {
@@ -64,10 +74,15 @@ class HomeViewBody extends StatelessWidget {
                       allProductModel: state.allProductModel,
                     );
                   }
-                  return const Center(child: CircularProgressIndicator());
+                  return CustomShimmerLoading(
+                    child: ListViewSeparatedItemProduct(
+                      title: 'Best for You',
+                      allProductModel: allProductDummy,
+                    ),
+                  );
                 },
               ),
-              BrandsListView(),
+              const BrandsColumnWidget(),
               BlocBuilder<GetAllProductCubit, GetAllProductState>(
                 builder: (context, state) {
                   if (state is GetAllProductError) {
@@ -84,7 +99,12 @@ class HomeViewBody extends StatelessWidget {
                       allProductModel: state.allProductModel,
                     );
                   }
-                  return const Center(child: CircularProgressIndicator());
+                  return CustomShimmerLoading(
+                    child: ListViewSeparatedItemProduct(
+                      title: 'Buy Again',
+                      allProductModel: allProductDummy,
+                    ),
+                  );
                 },
               ),
             ],

@@ -63,23 +63,26 @@ class _PageViewDetailsProductState extends State<PageViewDetailsProduct> {
 
         SizedBox(
           height: 60,
-          child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-            itemCount: images.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 8),
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {
-                  _controller.animateToPage(
-                    index,
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                  );
-                },
-                child: CustomNetworkImage(imageUrl: images[index]).paddingOnly(
-                  left: 14),
-              );
-            },
+          child: Center(
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: images.length,
+              shrinkWrap: true,
+              separatorBuilder: (_, __) => const SizedBox(width: 8),
+              itemBuilder: (context, index) {
+                return InkWell(
+                  onTap: () {
+                    _controller.animateToPage(
+                      index,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
+                  },
+                  child: CustomNetworkImage(imageUrl: images[index]).paddingOnly(
+                    right: 14),
+                );
+              },
+            ),
           ),
         ),
       ],
