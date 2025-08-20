@@ -12,6 +12,8 @@ import 'package:marketi/features/home/data/models/all_product_model/product.dart
 import 'package:marketi/features/home/presentation/views/categorey_view.dart';
 import 'package:marketi/features/home/presentation/views/home_view.dart';
 import 'package:marketi/features/home/presentation/views/popular_product_view.dart';
+import 'package:marketi/features/home/presentation/views/product_by_brands_view.dart';
+import 'package:marketi/features/home/presentation/views/product_by_category_view.dart';
 import 'package:marketi/features/onboarding/views/onboarding_view.dart';
 import 'package:marketi/features/profile/presentation/views/profile_view.dart';
 import 'package:marketi/features/splash/views/splash_view.dart';
@@ -33,6 +35,8 @@ abstract class AppRouter {
   static const String profile = 'profile';
   static const String details = 'details';
   static const String category = 'Category';
+  static const String productByCategory = 'ProductByCategoryView';
+  static const String productByBrands = 'ProductByBrandsView';
   
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -90,6 +94,18 @@ abstract class AppRouter {
       case category:
         return MaterialPageRoute(
           builder: (context) =>  CategoryView(
+          ),
+        );
+      case productByCategory:
+        return MaterialPageRoute(
+          builder: (context) =>  ProductByCategoryView(
+            name: settings.arguments as String,
+          ),
+        );
+      case productByBrands:
+        return MaterialPageRoute(
+          builder: (context) =>  ProductByBrandsView(
+            name: settings.arguments as String,
           ),
         );
 

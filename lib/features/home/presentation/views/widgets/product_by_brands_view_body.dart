@@ -5,15 +5,14 @@ import 'package:marketi/core/extension/padding_extension.dart';
 import 'package:marketi/core/widgets/custom_error_widget.dart';
 import 'package:marketi/core/widgets/custom_search_field.dart';
 import 'package:marketi/core/widgets/custom_shimmer_loading.dart';
-import 'package:marketi/features/home/presentation/controllers/get_all_product_cubit/get_all_product_cubit.dart';
-import 'package:marketi/features/home/presentation/controllers/get_gategory_cubit/get_gategory_cubit.dart';
+import 'package:marketi/features/home/presentation/controllers/get_brands_cubit/get_brands_cubit.dart';
 import 'package:marketi/features/home/presentation/views/widgets/popular_product_grid_view_loading.dart';
 import 'package:marketi/features/home/presentation/views/widgets/sliver_grid_item_product_widget.dart';
 import 'package:marketi/features/home/presentation/views/widgets/text_all_product_widget.dart';
 
-class PopularProductViewBody extends StatelessWidget {
-  const PopularProductViewBody({super.key});
-
+class ProductByBrandsViewBody extends StatelessWidget {
+  const ProductByBrandsViewBody({super.key, required this.name});
+  final String name;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -22,17 +21,17 @@ class PopularProductViewBody extends StatelessWidget {
             slivers: [
               SliverToBoxAdapter(child: CustomSearchField(onChanged: (p0) {})),
               SliverToBoxAdapter(
-                child: TextAllProductWidget(title: 'All Products'),
+                child: TextAllProductWidget(title: 'Products by $name'),
               ),
-              BlocBuilder<GetAllProductCubit, GetAllProductState>(
+              BlocBuilder<GetBrandsCubit, GetBrandsState>(
                 builder: (context, state) {
-                  if (state is GetAllProductError) {
+                  if (state is ProductByBrandsError) {
                     return SliverToBoxAdapter(
                       child: CustomErrorWidget(errorMessage: state.message),
                     );
-                  } else if (state is GetAllProductSuccess) {
+                  } else if (state is ProductByBrandsSuccess) {
                     return SliverGridItemProductWidget(
-                      allProductModel: state.allProductModel,
+                      allProductModel: state.products,
                     );
                   }
                   return SliverToBoxAdapter(

@@ -15,6 +15,7 @@ class ArrowBackIosWidget extends StatelessWidget {
         width: 48,
         height: 48,
         alignment: Alignment.center,
+        margin: const EdgeInsets.symmetric(horizontal: 2),
         decoration: ShapeDecoration(
           shape: RoundedRectangleBorder(
             side: BorderSide(width: 1, color: AppColors.lightBlueColor),

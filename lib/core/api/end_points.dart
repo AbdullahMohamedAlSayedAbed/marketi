@@ -8,6 +8,8 @@ abstract class EndPoints {
   static const String userData = "portfoilo/userData";
   static const String addImage = "portfoilo/addImage";
   static String getUserById(int id) => "user/get-user/$id";
+  static String productsByCategory(String name) => "home/products/category/$name";
+  static String productsByBrand(String name) => "home/products/brand/$name";
 }
 
 abstract class ApiKeys {

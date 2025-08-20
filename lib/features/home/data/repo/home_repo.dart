@@ -6,6 +6,8 @@ import 'package:marketi/features/home/data/models/categories_model.dart';
 
 abstract class HomeRepo {
   Future<Either<ServerException, AllProductModel>> getAllProducts();
+  Future<Either<ServerException, AllProductModel>> categoryByProduct(String name);
+  Future<Either<ServerException, AllProductModel>> brandByProduct(String name);
   Future<Either<ServerException, List<CategoriesModel>>> getCategories();
   Future<Either<ServerException, List<BrandsModel>>> getBrands();
 }

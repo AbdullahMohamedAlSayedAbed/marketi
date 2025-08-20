@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketi/core/functions/build_app_bar.dart';
 import 'package:marketi/core/services/get_it_services.dart';
 import 'package:marketi/features/home/presentation/controllers/get_all_product_cubit/get_all_product_cubit.dart';
+import 'package:marketi/features/home/presentation/controllers/get_gategory_cubit/get_gategory_cubit.dart';
 import 'package:marketi/features/home/presentation/views/widgets/popular_product_view_body.dart';
 
 class PopularProductView extends StatelessWidget {

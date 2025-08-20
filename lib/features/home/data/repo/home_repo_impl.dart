@@ -71,4 +71,42 @@ class HomeRepoImpl extends HomeRepo {
       );
     }
   }
+
+  @override
+  Future<Either<ServerException, AllProductModel>> brandByProduct(
+    String name,
+  ) async {
+    try {
+      final response = await apiConsumer.get(EndPoints.productsByBrand(name));
+      return Right(AllProductModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e);
+    } catch (e) {
+      return Left(
+        ServerException(
+          errorModel: ErrorModel(message: e.toString(), statusCode: 500),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<ServerException, AllProductModel>> categoryByProduct(
+    String name,
+  ) async {
+    try {
+      final response = await apiConsumer.get(
+        EndPoints.productsByCategory(name),
+      );
+      return Right(AllProductModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(e);
+    } catch (e) {
+      return Left(
+        ServerException(
+          errorModel: ErrorModel(message: e.toString(), statusCode: 500),
+        ),
+      );
+    }
+  }
 }

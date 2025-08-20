@@ -13,7 +13,7 @@ AppBar buildAppBar({required String title}) {
         color: AppColors.darkPrimaryColor,
       ),
     ),
-    leading: ArrowBackIosWidget().paddingOnly(left: 8),
+    leading: ArrowBackIosWidget().paddingOnly(left: 16),
     centerTitle: true,
     actions: [ImageProfileAppBar().paddingOnly(right: 8)],
   );

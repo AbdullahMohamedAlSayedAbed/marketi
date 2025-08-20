@@ -18,13 +18,32 @@ final class GetBrandsSuccess extends GetBrandsState {
 
   @override
   List<Object> get props => [brands];
-
 }
 
 final class GetBrandsError extends GetBrandsState {
   final String message;
 
   const GetBrandsError({required this.message});
+
+  @override
+  List<Object> get props => [message];
+}
+
+final class ProductByBrandsLoading extends GetBrandsState {}
+
+final class ProductByBrandsSuccess extends GetBrandsState {
+  final AllProductModel? products;
+
+  const ProductByBrandsSuccess({this.products});
+
+  @override
+  List<Object> get props => [products ?? []];
+}
+
+final class ProductByBrandsError extends GetBrandsState {
+  final String message;
+
+  const ProductByBrandsError({required this.message});
 
   @override
   List<Object> get props => [message];

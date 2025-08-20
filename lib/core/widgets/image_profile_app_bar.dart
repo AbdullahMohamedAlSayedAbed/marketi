@@ -6,14 +6,14 @@ import 'package:marketi/core/widgets/custom_network_image.dart'
     show CustomNetworkImage;
 
 class ImageProfileAppBar extends StatelessWidget {
-  const ImageProfileAppBar({super.key, this.imageUrl,  this.widthAndHeight});
+  const ImageProfileAppBar({super.key, this.imageUrl, this.widthAndHeight});
   final String? imageUrl;
   final double? widthAndHeight;
   @override
   Widget build(BuildContext context) {
     return Container(
-      width:widthAndHeight?? 44,
-      height:widthAndHeight?? 44,
+      width: widthAndHeight ?? 44,
+      height: widthAndHeight ?? 44,
       padding: EdgeInsets.all(1),
       decoration: ShapeDecoration(
         shape: OvalBorder(
@@ -22,10 +22,11 @@ class ImageProfileAppBar extends StatelessWidget {
       ),
       child: ClipOval(
         child: imageUrl == null
-            ? SvgPicture.asset(
-                Assets.imagesEllipse1,
-              )
-            : CustomNetworkImage(imageUrl: imageUrl!),
+            ? SvgPicture.asset(Assets.imagesEllipse1)
+            : CustomNetworkImage(
+                imageUrl:
+                    "https://supermarket-dan1.onrender.com/api/v1/${imageUrl!}",
+              ),
       ),
     );
   }
