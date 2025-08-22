@@ -19,7 +19,7 @@ class ProductByBrandsViewBody extends StatelessWidget {
       child:
           CustomScrollView(
             slivers: [
-              SliverToBoxAdapter(child: CustomSearchField(onChanged: (p0) {})),
+              SliverToBoxAdapter(child: CustomSearchField()),
               SliverToBoxAdapter(
                 child: TextAllProductWidget(title: 'Products by $name'),
               ),

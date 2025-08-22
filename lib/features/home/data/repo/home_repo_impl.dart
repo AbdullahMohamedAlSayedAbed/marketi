@@ -22,7 +22,12 @@ class HomeRepoImpl extends HomeRepo {
     try {
       final response = await apiConsumer.get(
         ApiKeys.allProducts,
-        queryParameters: {ApiKeys.skip: skip, ApiKeys.limit: limit, if (sortBy != null) 'sortBy': sortBy, if (order != null) 'order': order},
+        queryParameters: {
+          ApiKeys.skip: skip,
+          ApiKeys.limit: limit,
+          if (sortBy != null) 'sortBy': sortBy,
+          if (order != null) 'order': order,
+        },
       );
       return Right(AllProductModel.fromJson(response));
     } on ServerException catch (e) {

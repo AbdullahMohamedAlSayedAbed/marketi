@@ -25,7 +25,7 @@ class HomeViewBody extends StatelessWidget {
           Column(
             spacing: 8,
             children: [
-              CustomSearchField(onChanged: (p0) {}),
+              CustomSearchField(),
               CarouselSliderOfferHomeWidget(),
               BlocBuilder<GetAllProductCubit, GetAllProductState>(
                 builder: (context, state) {

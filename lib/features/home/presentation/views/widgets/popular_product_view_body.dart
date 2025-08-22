@@ -69,7 +69,6 @@ class _PopularProductViewBodyState extends State<PopularProductViewBody> {
                         },
                       );
                     },
-                    onChanged: (p0) {},
                   ),
                 ),
                 SliverToBoxAdapter(

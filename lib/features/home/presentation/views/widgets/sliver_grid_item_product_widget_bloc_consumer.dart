@@ -39,8 +39,7 @@ class _SliverGridItemProductWidgetBlocConsumerState
             state is GetAllProductPaginationLoading ||
             state is GetAllProductPaginationError) {
           return SliverGridItemProductWidget(allProductModel: allProductModel);
-        } else if (state is GetAllProductLoading ||
-            state is GetAllProductPaginationLoading) {
+        } else if (state is GetAllProductLoading) {
           return SliverToBoxAdapter(
             child: CustomShimmerLoading(child: PopularProductGridViewLoading()),
           );

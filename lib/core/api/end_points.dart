@@ -7,6 +7,7 @@ abstract class EndPoints {
   static const String activeResetPass = "auth/activeResetPass";
   static const String userData = "portfoilo/userData";
   static const String addImage = "portfoilo/addImage";
+  static const String search = "home/productsFilter";
   static String getUserById(int id) => "user/get-user/$id";
   static String productsByCategory(String name) => "home/products/category/$name";
   static String productsByBrand(String name) => "home/products/brand/$name";
@@ -25,6 +26,7 @@ abstract class ApiKeys {
   static const String image = "image";
   static const String skip = "skip";
   static const String limit = "limit";
+  static const String search = "search";
   static const String id = "_id";
   static const String address = "address";
   static const String confirmPassword = "confirmPassword";

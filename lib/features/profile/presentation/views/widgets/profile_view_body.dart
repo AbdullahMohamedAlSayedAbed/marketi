@@ -25,19 +25,22 @@ class ProfileViewBody extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        StackDataUserProfileView(),
-        SizedBox(height: 30),
-        ...RowItemProfileList.map(
-          (e) => RowItemProfileWidget(
-            title: e.title,
-            icon: e.icon,
-            onTap: e.onTap,
+    return SingleChildScrollView(
+      physics: BouncingScrollPhysics(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          StackDataUserProfileView(),
+          SizedBox(height: 30),
+          ...RowItemProfileList.map(
+            (e) => RowItemProfileWidget(
+              title: e.title,
+              icon: e.icon,
+              onTap: e.onTap,
+            ),
           ),
-        ),
-      ],
-    ).paddingSymmetric(horizontalPadding: 22, verticalPadding: kTopPadding);
+        ],
+      ).paddingSymmetric(horizontalPadding: 22, verticalPadding: kTopPadding),
+    );
   }
 }

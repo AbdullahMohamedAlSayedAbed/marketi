@@ -14,6 +14,8 @@ class GetAllProductCubit extends Cubit<GetAllProductState> {
   int _skip = 0;
   bool _isFetching = false;
   bool _hasMore = true;
+  String? _sortBy;
+  String? _order;
   final AllProductModel _allProducts = AllProductModel(list: []);
 
   Future<void> getAllProducts({
@@ -30,6 +32,8 @@ class GetAllProductCubit extends Cubit<GetAllProductState> {
       _skip = 0;
       _hasMore = true;
       _allProducts.list?.clear();
+      _sortBy = sortBy ?? _sortBy;
+      _order = order ?? _order;
       emit(GetAllProductLoading());
     } else if (_allProducts.list?.isNotEmpty ?? false) {
       emit(GetAllProductPaginationLoading());
@@ -40,8 +44,8 @@ class GetAllProductCubit extends Cubit<GetAllProductState> {
     final result = await homeRepo.getAllProducts(
       skip: _skip,
       limit: _limit,
-      sortBy: sortBy,
-      order: order,
+      sortBy: _sortBy,
+      order: _order,
     );
 
     result.fold(

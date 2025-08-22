@@ -13,6 +13,8 @@ import 'package:marketi/features/home/presentation/controllers/get_gategory_cubi
 import 'package:marketi/features/profile/data/repo/profile_repo.dart';
 import 'package:marketi/features/profile/data/repo/profile_repo_impl.dart';
 import 'package:marketi/features/profile/presentation/controllers/profile_image_cubit/profile_image_cubit_cubit.dart';
+import 'package:marketi/features/search/data/repos/search_repo_impl.dart';
+import 'package:marketi/features/search/presentation/controller/cubit/search_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -30,8 +32,12 @@ void setupServiceLocator() {
   getIt.registerLazySingleton<ProfileRepo>(
     () => ProfileRepoImpl(apiConsumer: getIt<DioConsumer>()),
   );
+  getIt.registerLazySingleton<SearchRepoImpl>(
+    () => SearchRepoImpl(apiConsumer: getIt<DioConsumer>()),
+  );
   getIt.registerFactory(() => GetGategoryCubit(getIt<HomeRepo>()));
   getIt.registerFactory(() => GetBrandsCubit(getIt<HomeRepo>()));
   getIt.registerFactory(() => GetAllProductCubit(getIt<HomeRepo>()));
   getIt.registerFactory(() => ProfileImageCubitCubit(getIt<ProfileRepo>(),));
+  getIt.registerFactory(() => SearchCubit(getIt<SearchRepoImpl>(),));
 }

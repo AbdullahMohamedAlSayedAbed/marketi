@@ -16,6 +16,7 @@ import 'package:marketi/features/home/presentation/views/product_by_brands_view.
 import 'package:marketi/features/home/presentation/views/product_by_category_view.dart';
 import 'package:marketi/features/onboarding/views/onboarding_view.dart';
 import 'package:marketi/features/profile/presentation/views/profile_view.dart';
+import 'package:marketi/features/search/presentation/views/search_view.dart';
 import 'package:marketi/features/splash/views/splash_view.dart';
 
 abstract class AppRouter {
@@ -37,7 +38,8 @@ abstract class AppRouter {
   static const String category = 'Category';
   static const String productByCategory = 'ProductByCategoryView';
   static const String productByBrands = 'ProductByBrandsView';
-  
+  static const String search = 'search';
+
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case splash:
@@ -82,32 +84,26 @@ abstract class AppRouter {
           builder: (context) => const PopularProductView(),
         );
       case profile:
-        return MaterialPageRoute(
-          builder: (context) => const ProfileView(),
-        );
+        return MaterialPageRoute(builder: (context) => const ProfileView());
       case details:
         return MaterialPageRoute(
-          builder: (context) =>  DetailsProductView(
-            product: settings.arguments as Product,
-          ),
+          builder: (context) =>
+              DetailsProductView(product: settings.arguments as Product),
         );
       case category:
-        return MaterialPageRoute(
-          builder: (context) =>  CategoryView(
-          ),
-        );
+        return MaterialPageRoute(builder: (context) => CategoryView());
       case productByCategory:
         return MaterialPageRoute(
-          builder: (context) =>  ProductByCategoryView(
-            name: settings.arguments as String,
-          ),
+          builder: (context) =>
+              ProductByCategoryView(name: settings.arguments as String),
         );
       case productByBrands:
         return MaterialPageRoute(
-          builder: (context) =>  ProductByBrandsView(
-            name: settings.arguments as String,
-          ),
+          builder: (context) =>
+              ProductByBrandsView(name: settings.arguments as String),
         );
+      case search:
+        return MaterialPageRoute(builder: (context) => SearchView());
 
       default:
         return MaterialPageRoute(
