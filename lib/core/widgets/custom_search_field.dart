@@ -4,15 +4,19 @@ import 'package:marketi/core/utils/styles_app.dart';
 import 'package:marketi/core/widgets/menu_search_field_widget.dart';
 
 class CustomSearchField extends StatelessWidget {
-  const CustomSearchField({super.key, this.onChanged});
+  const CustomSearchField({super.key, this.onChanged, this.onOrder});
   final void Function(String)? onChanged;
+  final void Function()? onOrder;
   @override
   Widget build(BuildContext context) {
+    
     return TextField(
       onChanged: onChanged,
       keyboardType: TextInputType.text,
       decoration: InputDecoration(
-        suffixIcon: MenuSearchFieldWidget(),
+        suffixIcon: InkWell(
+          onTap: onOrder,
+          child: MenuSearchFieldWidget()),
         prefixIcon: Icon(
           Icons.search,
           color: AppColors.darkPrimaryColor,

@@ -23,6 +23,8 @@ abstract class ApiKeys {
   static const String name = "name";
   static const String phone = "phone";
   static const String image = "image";
+  static const String skip = "skip";
+  static const String limit = "limit";
   static const String id = "_id";
   static const String address = "address";
   static const String confirmPassword = "confirmPassword";

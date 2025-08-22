@@ -13,9 +13,17 @@ class HomeRepoImpl extends HomeRepo {
 
   HomeRepoImpl({required this.apiConsumer});
   @override
-  Future<Either<ServerException, AllProductModel>> getAllProducts() async {
+  Future<Either<ServerException, AllProductModel>> getAllProducts({
+    int skip = 0,
+    int limit = 10,
+    String? sortBy,
+    String? order,
+  }) async {
     try {
-      final response = await apiConsumer.get(ApiKeys.allProducts);
+      final response = await apiConsumer.get(
+        ApiKeys.allProducts,
+        queryParameters: {ApiKeys.skip: skip, ApiKeys.limit: limit, if (sortBy != null) 'sortBy': sortBy, if (order != null) 'order': order},
+      );
       return Right(AllProductModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(e);
