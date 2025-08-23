@@ -37,7 +37,10 @@ class HomeView extends StatelessWidget {
               unselectedItemColor: AppColors.navyColor,
               showUnselectedLabels: true,
             ),
-            body:IndexedStack(index: state.currentIndex, children: cubit.screens),
+            body: IndexedStack(
+              index: state.currentIndex,
+              children: cubit.screens,
+            ),
           );
         },
       ),
@@ -46,19 +49,13 @@ class HomeView extends StatelessWidget {
 
   List<BottomNavigationBarItem> get buildBottomNavigation {
     return const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home_outlined),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart_outlined),
-                label: 'Cart',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.favorite),
-                label: 'Favorites',
-              ),
-              BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Menu'),
-            ];
+      BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: 'Home'),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.shopping_cart_outlined),
+        label: 'Cart',
+      ),
+      BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favorites'),
+      BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Menu'),
+    ];
   }
 }

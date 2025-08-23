@@ -8,6 +8,12 @@ abstract class EndPoints {
   static const String userData = "portfoilo/userData";
   static const String addImage = "portfoilo/addImage";
   static const String search = "home/productsFilter";
+  static const String addCart = "user/addCart";
+  static const String getCart = "user/getCart";
+  static const String getFavorite = "user/getFavorite";
+  static const String addFavorite = "user/addFavorite";
+  static const String deleteFavorite = "user/deleteFavorite";
+  static const String deleteCart = "user/deleteCart";
   static String getUserById(int id) => "user/get-user/$id";
   static String productsByCategory(String name) => "home/products/category/$name";
   static String productsByBrand(String name) => "home/products/brand/$name";

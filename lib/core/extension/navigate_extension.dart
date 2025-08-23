@@ -19,6 +19,6 @@ extension NavigationExtension on BuildContext {
   }
 
   void pop<T extends Object?>([T? result]) {
-    Navigator.pop(this, result);
+    if (Navigator.canPop(this)) Navigator.pop(this, result);
   }
 }

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketi/core/extension/navigate_extension.dart';
 import 'package:marketi/core/utils/app_colors.dart';
 import 'package:marketi/core/utils/on_generate_router.dart';
 import 'package:marketi/core/utils/styles_app.dart';
 import 'package:marketi/core/widgets/custom_network_image.dart';
-import 'package:marketi/core/widgets/favorite_product_item_widget.dart';
+import 'package:marketi/features/cart/presentation/controller/cart_cubit/cart_cubit.dart';
+import 'package:marketi/features/favourite/presentation/views/widgets/favorite_product_item_widget.dart';
 import 'package:marketi/features/home/data/models/all_product_model/product.dart';
 import 'package:marketi/features/home/presentation/views/widgets/add_button_item_product.dart';
 
@@ -68,7 +70,7 @@ class ItemProductCardWidget extends StatelessWidget {
                   Positioned(
                     right: 10,
                     top: 8,
-                    child: FavoriteProductItemWidget(),
+                    child: FavoriteProductItemWidget(product: product),
                   ),
                 ],
               ),
@@ -108,7 +110,11 @@ class ItemProductCardWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Align(alignment: Alignment.center, child: AddButtonItemProduct()),
+            Align(alignment: Alignment.center, child: AddButtonItemProduct(
+              onTap: () {
+                context.read<CartCubit>().addProduct(product);
+              },
+            )),
             SizedBox(height: 6),
           ],
         ),

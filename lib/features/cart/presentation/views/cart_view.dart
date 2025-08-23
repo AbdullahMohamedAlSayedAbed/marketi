@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:marketi/constant.dart';
+import 'package:marketi/core/extension/padding_extension.dart';
+import 'package:marketi/features/cart/presentation/views/widgets/cart_view_body.dart';
 
 class CartView extends StatelessWidget {
   const CartView({super.key});
@@ -6,12 +9,7 @@ class CartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Cart'),
-      ),
-      body: const Center(
-        child: Text('Cart is empty'),
-      ),
+      body: CartViewBody().paddingSymmetric(horizontalPadding: kHorizontalPadding),
     );
   }
 }

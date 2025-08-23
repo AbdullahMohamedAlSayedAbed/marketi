@@ -5,6 +5,10 @@ import 'package:marketi/features/auth/data/repo/auth_repo.dart';
 import 'package:marketi/features/auth/data/repo/auth_repo_impl.dart';
 import 'package:marketi/features/auth/presentation/controller/auth_cubit/auth_cubit.dart';
 import 'package:marketi/features/auth/presentation/controller/reset_password_email_cubit/reset_password_email_cubit.dart';
+import 'package:marketi/features/cart/data/repos/cart_repos_impl.dart';
+import 'package:marketi/features/cart/presentation/controller/cart_cubit/cart_cubit.dart';
+import 'package:marketi/features/favourite/data/repos/favourite_repo_impl.dart';
+import 'package:marketi/features/favourite/presentation/controller/favorite_cubit/favorite_cubit.dart';
 import 'package:marketi/features/home/data/repo/home_repo.dart';
 import 'package:marketi/features/home/data/repo/home_repo_impl.dart';
 import 'package:marketi/features/home/presentation/controllers/get_all_product_cubit/get_all_product_cubit.dart';
@@ -35,9 +39,17 @@ void setupServiceLocator() {
   getIt.registerLazySingleton<SearchRepoImpl>(
     () => SearchRepoImpl(apiConsumer: getIt<DioConsumer>()),
   );
+  getIt.registerLazySingleton<CartReposImpl>(
+    () => CartReposImpl(apiConsumer: getIt<DioConsumer>()),
+  );
+  getIt.registerLazySingleton<FavoriteRepoImpl>(
+    () => FavoriteRepoImpl(getIt<DioConsumer>()),
+  );
   getIt.registerFactory(() => GetGategoryCubit(getIt<HomeRepo>()));
   getIt.registerFactory(() => GetBrandsCubit(getIt<HomeRepo>()));
   getIt.registerFactory(() => GetAllProductCubit(getIt<HomeRepo>()));
-  getIt.registerFactory(() => ProfileImageCubitCubit(getIt<ProfileRepo>(),));
-  getIt.registerFactory(() => SearchCubit(getIt<SearchRepoImpl>(),));
+  getIt.registerFactory(() => ProfileImageCubitCubit(getIt<ProfileRepo>()));
+  getIt.registerFactory(() => SearchCubit(getIt<SearchRepoImpl>()));
+  getIt.registerFactory(() => CartCubit(cartRepos: getIt<CartReposImpl>()));
+  getIt.registerFactory(() => FavoriteCubit(getIt<FavoriteRepoImpl>()));
 }
