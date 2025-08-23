@@ -2,8 +2,8 @@
 class Assets {
   Assets._();
   
-  /// Assets for imagesEllipse 1
-  /// assets/images/Ellipse 1.svg
+  /// Assets for imagesEllipse1
+  /// assets/images/Ellipse1.svg
   static const String imagesEllipse1 = "assets/images/Ellipse1.svg";
 
   /// Assets for imagesFashion
@@ -81,6 +81,14 @@ class Assets {
   /// Assets for imagesOffer1
   /// assets/images/Offer_1.png
   static const String imagesOffer1 = "assets/images/Offer_1.png";
+
+  /// Assets for imagesOffer2
+  /// assets/images/Offer_2.png
+  static const String imagesOffer2 = "assets/images/Offer_2.png";
+
+  /// Assets for imagesOffer3
+  /// assets/images/Offer_3.png
+  static const String imagesOffer3 = "assets/images/Offer_3.png";
 
   /// Assets for imagesShapes
   /// assets/images/Shapes.svg

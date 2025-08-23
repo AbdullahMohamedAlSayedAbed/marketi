@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketi/features/auth/presentation/views/congratulations_view.dart';
 import 'package:marketi/features/auth/presentation/views/create_new_password.dart';
 import 'package:marketi/features/auth/presentation/views/forget_password_with_phone_view.dart';
@@ -7,8 +8,11 @@ import 'package:marketi/features/auth/presentation/views/login_view.dart';
 import 'package:marketi/features/auth/presentation/views/signup_view.dart';
 import 'package:marketi/features/auth/presentation/views/verification_code_email_view.dart';
 import 'package:marketi/features/auth/presentation/views/verification_code_view.dart';
+import 'package:marketi/features/cart/presentation/views/cart_view.dart';
 import 'package:marketi/features/details/presentation/views/details_product_view.dart';
+import 'package:marketi/features/favourite/presentation/views/favourite_view.dart';
 import 'package:marketi/features/home/data/models/all_product_model/product.dart';
+import 'package:marketi/features/home/presentation/controllers/bottom_navigation_bar_cubit/bottom_navigation_bar_cubit.dart';
 import 'package:marketi/features/home/presentation/views/categorey_view.dart';
 import 'package:marketi/features/home/presentation/views/home_view.dart';
 import 'package:marketi/features/home/presentation/views/popular_product_view.dart';
@@ -39,6 +43,8 @@ abstract class AppRouter {
   static const String productByCategory = 'ProductByCategoryView';
   static const String productByBrands = 'ProductByBrandsView';
   static const String search = 'search';
+  static const String cart = 'cartView';
+  static const String favorite = 'FavoriteView';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -73,7 +79,12 @@ abstract class AppRouter {
               CreateNewPasswordView(email: settings.arguments as String?),
         );
       case home:
-        return MaterialPageRoute(builder: (context) => HomeView());
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => BottomNavigationBarCubit(),
+            child: HomeView(),
+          ),
+        );
 
       case congratulations:
         return MaterialPageRoute(
@@ -104,7 +115,10 @@ abstract class AppRouter {
         );
       case search:
         return MaterialPageRoute(builder: (context) => SearchView());
-
+      case cart:
+        return MaterialPageRoute(builder: (context) => CartView());
+      case favorite:
+        return MaterialPageRoute(builder: (context) => FavoriteView());
       default:
         return MaterialPageRoute(
           builder: (context) =>

@@ -1,57 +1,64 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:marketi/core/extension/navigate_extension.dart';
-import 'package:marketi/core/functions/get_user.dart';
 import 'package:marketi/core/services/get_it_services.dart';
 import 'package:marketi/core/utils/app_colors.dart';
-import 'package:marketi/core/utils/on_generate_router.dart';
-import 'package:marketi/core/widgets/image_profile_app_bar.dart';
+import 'package:marketi/features/home/presentation/controllers/bottom_navigation_bar_cubit/bottom_navigation_bar_cubit.dart';
 import 'package:marketi/features/home/presentation/controllers/get_all_product_cubit/get_all_product_cubit.dart';
 import 'package:marketi/features/home/presentation/controllers/get_brands_cubit/get_brands_cubit.dart';
 import 'package:marketi/features/home/presentation/controllers/get_gategory_cubit/get_gategory_cubit.dart';
-import 'package:marketi/features/home/presentation/views/widgets/home_view_body.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: getUser().name == null
-            ? const Text('Hi')
-            : Text('Hi ${getUser().name}'),
-        actions: [
-          IconButton(
-            icon: Badge(
-              child: Icon(Icons.notifications, color: AppColors.primaryColor),
-            ),
-            onPressed: () {
-              // Handle menu button press
-            },
-          ),
-        ],
-        leading: InkWell(
-          onTap: () {
-            context.pushNamed(AppRouter.profile);
-          },
-          child: ImageProfileAppBar(),
+    final cubit = BlocProvider.of<BottomNavigationBarCubit>(context);
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getIt<GetGategoryCubit>()..getCategories(),
         ),
-      ),
-      body: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => getIt<GetGategoryCubit>()..getCategories(),
-          ),
-          BlocProvider(
-            create: (context) => getIt<GetBrandsCubit>()..getBrands(),
-          ),
-          BlocProvider(
-            create: (context) => getIt<GetAllProductCubit>()..getAllProducts(),
-          ),
-        ],
-        child: SafeArea(child: HomeViewBody()),
+        BlocProvider(create: (context) => getIt<GetBrandsCubit>()..getBrands()),
+        BlocProvider(
+          create: (context) => getIt<GetAllProductCubit>()..getAllProducts(),
+        ),
+      ],
+      child: BlocBuilder<BottomNavigationBarCubit, BottomNavigationBarState>(
+        builder: (context, state) {
+          return Scaffold(
+            appBar: cubit.appBars(context)[state.currentIndex],
+            bottomNavigationBar: BottomNavigationBar(
+              currentIndex: state.currentIndex,
+              onTap: (index) {
+                cubit.changeBottomNav(index);
+              },
+              items: buildBottomNavigation,
+              selectedItemColor: AppColors.primaryColor,
+              unselectedItemColor: AppColors.navyColor,
+              showUnselectedLabels: true,
+            ),
+            body:IndexedStack(index: state.currentIndex, children: cubit.screens),
+          );
+        },
       ),
     );
+  }
+
+  List<BottomNavigationBarItem> get buildBottomNavigation {
+    return const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home_outlined),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_cart_outlined),
+                label: 'Cart',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.favorite),
+                label: 'Favorites',
+              ),
+              BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Menu'),
+            ];
   }
 }

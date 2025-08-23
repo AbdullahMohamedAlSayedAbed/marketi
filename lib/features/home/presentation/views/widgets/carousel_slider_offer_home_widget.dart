@@ -1,13 +1,19 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:marketi/core/utils/app_images.dart';
 
 class CarouselSliderOfferHomeWidget extends StatelessWidget {
   const CarouselSliderOfferHomeWidget({super.key});
-
+  List<String> get imagesOffer => [
+    Assets.imagesOffer1,
+    Assets.imagesOffer2,
+    Assets.imagesOffer3,
+  ];
   @override
   Widget build(BuildContext context) {
     return CarouselSlider.builder(
-      itemCount: 5,
+      itemCount: imagesOffer.length,
       itemBuilder: (context, index, realIndex) {
         return Container(
           decoration: ShapeDecoration(
@@ -15,7 +21,7 @@ class CarouselSliderOfferHomeWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(14),
             ),
           ),
-          child: Image.asset('assets/images/Offer_1.png'),
+          child: Image.asset(imagesOffer[index]),
         );
       },
       options: CarouselOptions(
