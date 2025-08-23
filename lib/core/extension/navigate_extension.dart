@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:marketi/core/utils/on_generate_router.dart';
 
 extension NavigationExtension on BuildContext {
   void pushNamed(String routeName, {Object? arguments}) {
@@ -19,6 +20,10 @@ extension NavigationExtension on BuildContext {
   }
 
   void pop<T extends Object?>([T? result]) {
-    if (Navigator.canPop(this)) Navigator.pop(this, result);
+    if (Navigator.canPop(this)) {
+      Navigator.pop(this, result);
+    } else {
+      Navigator.pushNamedAndRemoveUntil(this, AppRouter.home, (route) => false);
+    }
   }
 }
