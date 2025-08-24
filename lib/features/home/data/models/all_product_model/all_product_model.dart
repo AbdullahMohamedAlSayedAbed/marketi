@@ -17,6 +17,9 @@ class AllProductModel extends Equatable {
   Map<String, dynamic> toJson() => {
     'list': list?.map((e) => e.toJson()).toList(),
   };
+  AllProductModel copyWith({List<Product>? list}) {
+    return AllProductModel(list: list ?? this.list);
+  }
 
   @override
   List<Object?> get props => [list];

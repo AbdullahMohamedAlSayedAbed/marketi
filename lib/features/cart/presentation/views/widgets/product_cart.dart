@@ -16,12 +16,10 @@ class ProductCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     return SizedBox(
       height: 205,
       child: Card(
         elevation: 3,
-
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         shadowColor: const Color(0x7FB2CCFF),
         child: Padding(

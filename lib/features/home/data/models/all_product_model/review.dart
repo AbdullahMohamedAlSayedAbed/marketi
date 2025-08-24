@@ -30,6 +30,19 @@ class Review extends Equatable {
     'reviewerName': reviewerName,
     'reviewerEmail': reviewerEmail,
   };
+  Review copyWith({
+    int? rating,
+    String? comment,
+    DateTime? date,
+    String? reviewerName,
+    String? reviewerEmail,
+  }) => Review(
+    rating: rating ?? this.rating,
+    comment: comment ?? this.comment,
+    date: date ?? this.date,
+    reviewerName: reviewerName ?? this.reviewerName,
+    reviewerEmail: reviewerEmail ?? this.reviewerEmail,
+  );
 
   @override
   List<Object?> get props {

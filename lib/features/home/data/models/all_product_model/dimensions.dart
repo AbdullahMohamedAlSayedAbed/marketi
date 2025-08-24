@@ -12,6 +12,13 @@ class Dimensions extends Equatable {
     height: (json['height'] as num?)?.toDouble(),
     depth: (json['depth'] as num?)?.toDouble(),
   );
+  Dimensions copyWith({double? width, double? height, double? depth}) {
+    return Dimensions(
+      width: width ?? this.width,
+      height: height ?? this.height,
+      depth: depth ?? this.depth,
+    );
+  }
 
   Map<String, dynamic> toJson() => {
     'width': width,

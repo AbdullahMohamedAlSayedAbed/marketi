@@ -25,6 +25,17 @@ class Meta extends Equatable {
     'barcode': barcode,
     'qrCode': qrCode,
   };
+  Meta copyWith({
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    String? barcode,
+    String? qrCode,
+  }) => Meta(
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    barcode: barcode ?? this.barcode,
+    qrCode: qrCode ?? this.qrCode,
+  );
 
   @override
   List<Object?> get props => [createdAt, updatedAt, barcode, qrCode];

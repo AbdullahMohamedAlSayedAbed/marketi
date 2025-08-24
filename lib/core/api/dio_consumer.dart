@@ -5,7 +5,6 @@ import 'package:marketi/core/api/end_points.dart';
 import 'package:marketi/core/error/server_exception.dart';
 
 class DioConsumer extends ApiConsumer {
-  @override
   final Dio dio;
   DioConsumer({required this.dio}) {
     dio.options.baseUrl = EndPoints.baseUrl;
