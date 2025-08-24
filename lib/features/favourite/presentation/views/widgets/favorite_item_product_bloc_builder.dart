@@ -7,20 +7,9 @@ import 'package:marketi/features/favourite/presentation/views/widgets/favorite_e
 import 'package:marketi/features/home/presentation/views/widgets/popular_product_grid_view_loading.dart';
 import 'package:marketi/features/home/presentation/views/widgets/sliver_grid_item_product_widget.dart';
 
-class FavoriteItemProductBlocBuilder extends StatefulWidget {
+class FavoriteItemProductBlocBuilder extends StatelessWidget {
   const FavoriteItemProductBlocBuilder({super.key});
 
-  @override
-  State<FavoriteItemProductBlocBuilder> createState() => _FavoriteItemProductBlocBuilderState();
-}
-
-class _FavoriteItemProductBlocBuilderState extends State<FavoriteItemProductBlocBuilder> {
-  
-  @override
-  void initState() {
-    context.read<FavoriteCubit>().getFavorites();
-    super.initState();
-  }
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FavoriteCubit, FavoriteState>(

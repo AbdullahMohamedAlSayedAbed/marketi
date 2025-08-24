@@ -18,13 +18,11 @@ class BottomNavigationBarCubit extends Cubit<BottomNavigationBarState> {
     SafeArea(child: HomeViewBody()),
     CartView(),
     const FavoriteView(),
-    Container(),
   ];
   List<AppBar> appBars(BuildContext context) => [
     buildHomeAppBar(context),
     buildAppBar(title: 'Cart'),
     buildAppBar(title: 'Favorites'),
-    buildAppBar(title: 'Menu'),
   ];
 
   void changeBottomNav(int index) {
