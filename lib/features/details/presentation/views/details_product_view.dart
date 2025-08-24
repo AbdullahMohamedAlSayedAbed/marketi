@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:marketi/core/extension/navigate_extension.dart';
+import 'package:marketi/core/utils/on_generate_router.dart' show AppRouter;
 import 'package:marketi/features/details/presentation/views/widgets/details_product_view_body.dart';
 import 'package:marketi/features/home/data/models/all_product_model/product.dart';
 import 'package:marketi/features/profile/presentation/views/widgets/custom_app_bar_profile_and_details.dart';
@@ -10,7 +12,9 @@ class DetailsProductView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: customAppBarProfileAndDetails(title: 'Product Details'),
+      appBar: customAppBarProfileAndDetails(title: 'Product Details', onPressed: (){
+        context.pushNamed(AppRouter.cart);  
+      }),
       body: Provider.value(
         value: product,
         child: SafeArea(child: DetailsProductViewBody()),

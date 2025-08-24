@@ -26,7 +26,6 @@ class _CartViewBodyState extends State<CartViewBody> {
     super.initState();
   }
 
-  CartModel? cart;
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -50,31 +49,38 @@ class _CartViewBodyState extends State<CartViewBody> {
                 child: CustomErrorWidget(errorMessage: state.message),
               );
             } else if (state is CartLoaded) {
-              cart = state.cart;
-              if (cart?.cartItems.isEmpty ?? true) {
+              CartModel cart = state.cart;
+              if (cart.cartItems.isEmpty) {
                 return const SliverFillRemaining(
                   child: Center(child: CartEmpty()),
                 );
               }
               return SliverList(
                 delegate: SliverChildBuilderDelegate((context, index) {
-                  final cartItem = cart!.cartItems[index];
+                  final cartItem = cart.cartItems[index];
                   return ProductCart(cartItem: cartItem);
-                }, childCount: cart!.cartItems.length),
+                }, childCount: cart.cartItems.length),
               );
             }
             return const SliverFillRemaining(child: SizedBox());
           },
         ),
         SliverToBoxAdapter(
-          child: CheckOut(
-            itemsCount: cart?.cartItems.length ?? 0,
-            totalPrice: cart?.calculateTotalPriceCart.toDouble() ?? 0.0,
-            onPressed: () {
-              showCustomToast(
-                message: "Check out successfully",
-                type: ToastType.warning,
-              );
+          child: BlocBuilder<CartCubit, CartState>(
+            builder: (context, state) {
+              if (state is CartLoaded) {
+                return CheckOut(
+                  itemsCount: state.cart.cartItems.length,
+                  totalPrice: state.cart.calculateTotalPriceCart.toDouble(),
+                  onPressed: () {
+                    showCustomToast(
+                      message: "Check out successfully",
+                      type: ToastType.warning,
+                    );
+                  },
+                );
+              }
+              return const SizedBox.shrink();
             },
           ),
         ),

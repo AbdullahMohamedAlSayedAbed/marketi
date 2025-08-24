@@ -14,6 +14,7 @@ import 'package:marketi/features/home/presentation/views/widgets/carousel_slider
 import 'package:marketi/features/home/presentation/views/widgets/category_item_bloc_builder.dart';
 import 'package:marketi/features/home/presentation/views/widgets/list_view_separated_item_product.dart';
 import 'package:marketi/features/home/presentation/views/widgets/product_title.dart';
+import 'package:marketi/features/home/presentation/views/widgets/sort_bottom_sheet.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -25,7 +26,24 @@ class HomeViewBody extends StatelessWidget {
           Column(
             spacing: 8,
             children: [
-              CustomSearchField(),
+              CustomSearchField(
+                onOrder: () {
+                  showModalBottomSheet(
+                    context: context,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(20),
+                      ),
+                    ),
+                    builder: (_) {
+                      return BlocProvider.value(
+                        value: context.read<GetAllProductCubit>(),
+                        child: const SortBottomSheet(),
+                      );
+                    },
+                  );
+                },
+              ),
               CarouselSliderOfferHomeWidget(),
               BlocBuilder<GetAllProductCubit, GetAllProductState>(
                 builder: (context, state) {
