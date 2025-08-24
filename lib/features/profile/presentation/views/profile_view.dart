@@ -1,5 +1,4 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:marketi/core/extension/navigate_extension.dart';
 import 'package:marketi/core/utils/on_generate_router.dart';

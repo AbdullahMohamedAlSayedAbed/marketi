@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketi/constant.dart';
 import 'package:marketi/core/extension/padding_extension.dart';
+import 'package:marketi/core/functions/show_modal_bottom_sheet_order_products.dart';
 import 'package:marketi/core/widgets/custom_search_field.dart';
 import 'package:marketi/features/home/presentation/controllers/get_all_product_cubit/get_all_product_cubit.dart';
 import 'package:marketi/features/home/presentation/views/widgets/sliver_grid_item_product_widget_bloc_consumer.dart';
-import 'package:marketi/features/home/presentation/views/widgets/sort_bottom_sheet.dart';
 import 'package:marketi/features/home/presentation/views/widgets/text_all_product_widget.dart';
 
 class PopularProductViewBody extends StatefulWidget {
@@ -54,20 +54,7 @@ class _PopularProductViewBodyState extends State<PopularProductViewBody> {
                 SliverToBoxAdapter(
                   child: CustomSearchField(
                     onOrder: () {
-                      showModalBottomSheet(
-                        context: context,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(20),
-                          ),
-                        ),
-                        builder: (_) {
-                          return BlocProvider.value(
-                            value: context.read<GetAllProductCubit>(),
-                            child: const SortBottomSheet(),
-                          );
-                        },
-                      );
+                      showModalBottomSheetOrderProducts(context);
                     },
                   ),
                 ),

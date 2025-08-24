@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:marketi/core/extension/padding_extension.dart';
 import 'package:marketi/core/utils/app_colors.dart';
@@ -7,14 +8,25 @@ import 'package:marketi/features/auth/presentation/views/widgets/arrow_back_ios_
 
 AppBar buildAppBar({required String title}) {
   return AppBar(
-    title: Text(
-      title,
-      style: AppStyles().style20w600.copyWith(
-        color: AppColors.darkPrimaryColor,
+    title: FadeInDown(
+      duration: const Duration(milliseconds: 500),
+      child: Text(
+        title,
+        style: AppStyles().style20w600.copyWith(
+              color: AppColors.darkPrimaryColor,
+            ),
       ),
     ),
-    leading: ArrowBackIosWidget().paddingOnly(left: 16),
+    leading: FadeInLeft(
+      duration: const Duration(milliseconds: 600),
+      child: ArrowBackIosWidget().paddingOnly(left: 16),
+    ),
     centerTitle: true,
-    actions: [ImageProfileAppBar().paddingOnly(right: 8)],
+    actions: [
+      FadeInRight(
+        duration: const Duration(milliseconds: 600),
+        child: ImageProfileAppBar().paddingOnly(right: 8),
+      ),
+    ],
   );
 }

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:marketi/constant.dart';
 import 'package:marketi/core/extension/navigate_extension.dart';
 import 'package:marketi/core/extension/padding_extension.dart';
+import 'package:marketi/core/functions/show_modal_bottom_sheet_order_products.dart';
 import 'package:marketi/core/utils/on_generate_router.dart';
 import 'package:marketi/core/widgets/custom_error_widget.dart';
 import 'package:marketi/core/widgets/custom_search_field.dart';
@@ -14,7 +15,6 @@ import 'package:marketi/features/home/presentation/views/widgets/carousel_slider
 import 'package:marketi/features/home/presentation/views/widgets/category_item_bloc_builder.dart';
 import 'package:marketi/features/home/presentation/views/widgets/list_view_separated_item_product.dart';
 import 'package:marketi/features/home/presentation/views/widgets/product_title.dart';
-import 'package:marketi/features/home/presentation/views/widgets/sort_bottom_sheet.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -28,20 +28,7 @@ class HomeViewBody extends StatelessWidget {
             children: [
               CustomSearchField(
                 onOrder: () {
-                  showModalBottomSheet(
-                    context: context,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(20),
-                      ),
-                    ),
-                    builder: (_) {
-                      return BlocProvider.value(
-                        value: context.read<GetAllProductCubit>(),
-                        child: const SortBottomSheet(),
-                      );
-                    },
-                  );
+                  showModalBottomSheetOrderProducts(context);
                 },
               ),
               CarouselSliderOfferHomeWidget(),
@@ -132,4 +119,7 @@ class HomeViewBody extends StatelessWidget {
           ),
     );
   }
+
+
 }
+  

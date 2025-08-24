@@ -7,6 +7,8 @@ import 'package:marketi/core/utils/app_images.dart';
 import 'package:marketi/core/utils/styles_app.dart';
 import 'package:marketi/features/profile/presentation/controllers/profile_image_cubit/profile_image_cubit_cubit.dart';
 import 'package:marketi/features/profile/presentation/views/widgets/stack_image_profile_view.dart';
+import 'package:animate_do/animate_do.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class StackDataUserProfileView extends StatelessWidget {
   const StackDataUserProfileView({super.key});
@@ -18,12 +20,26 @@ class StackDataUserProfileView extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          SvgPicture.asset(Assets.imagesShapes),
+          FadeInDown(
+            duration: const Duration(milliseconds: 600),
+            child: SvgPicture.asset(Assets.imagesShapes),
+          ),
           Column(
             children: [
-              StackImageProfile(),
-              Text(getUser().name!, style: AppStyles().style18w600),
-              Text(getUser().email!, style: AppStyles().style14w400),
+              FadeInDown(
+                duration: const Duration(milliseconds: 700),
+                child: const StackImageProfile(),
+              ),
+              const SizedBox(height: 8),
+              FadeInUp(
+                duration: const Duration(milliseconds: 800),
+                child: Text(getUser().name!, style: AppStyles().style18w600),
+              ),
+              const SizedBox(height: 4),
+              FadeInUp(
+                duration: const Duration(milliseconds: 900),
+                child: Text(getUser().email!, style: AppStyles().style14w400),
+              ),
             ],
           ),
         ],

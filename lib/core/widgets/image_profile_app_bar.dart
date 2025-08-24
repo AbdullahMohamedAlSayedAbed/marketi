@@ -14,6 +14,7 @@ class ImageProfileAppBar extends StatelessWidget {
       width: widthAndHeight ?? 44,
       height: widthAndHeight ?? 44,
       padding: EdgeInsets.all(1),
+      margin: EdgeInsets.only(left: 2),
       decoration: ShapeDecoration(
         shape: OvalBorder(
           side: BorderSide(color: AppColors.primaryColor, width: 4),
