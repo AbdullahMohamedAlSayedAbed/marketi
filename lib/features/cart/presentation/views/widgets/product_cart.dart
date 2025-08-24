@@ -7,6 +7,7 @@ import 'package:marketi/core/widgets/custom_network_image.dart';
 import 'package:marketi/features/cart/data/models/cart_item_model.dart';
 import 'package:marketi/features/cart/presentation/controller/cart_cubit/cart_cubit.dart';
 import 'package:marketi/features/cart/presentation/views/widgets/quantity_button.dart';
+import 'package:marketi/features/favourite/presentation/views/widgets/favorite_product_item_widget.dart';
 
 class ProductCart extends StatelessWidget {
   final CartItemModel cartItem;
@@ -17,14 +18,14 @@ class ProductCart extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: 190,
+      height: 205,
       child: Card(
         elevation: 3,
 
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         shadowColor: const Color(0x7FB2CCFF),
         child: Padding(
-          padding: const EdgeInsets.only(top: kTopPadding),
+          padding: const EdgeInsets.all(kTopPadding),
           child: Row(
             children: [
               ClipRRect(
@@ -49,14 +50,13 @@ class ProductCart extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
-                        IconButton(
-                          icon: const Icon(Icons.favorite_border),
-                          onPressed: () {},
-                        ),
+                        FavoriteProductItemWidget(product: cartItem.product),
                       ],
                     ),
                     Text(
                       cartItem.product.description ?? 'No Description',
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
                       style: const TextStyle(
                         fontSize: 12,
                         color: Color(0xFF67687E),
