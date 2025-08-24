@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:marketi/core/utils/app_colors.dart';
 import 'package:marketi/core/utils/app_images.dart';
 import 'package:marketi/core/widgets/custom_network_image.dart'
@@ -22,7 +21,7 @@ class ImageProfileAppBar extends StatelessWidget {
       ),
       child: ClipOval(
         child: imageUrl == null
-            ? SvgPicture.asset(Assets.imagesEllipse1)
+            ? Image.asset(Assets.imagesEllipse1,fit: BoxFit.cover)
             : CustomNetworkImage(
                 imageUrl:
                     "https://supermarket-dan1.onrender.com/api/v1/${imageUrl!}",

@@ -1,4 +1,3 @@
-
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
@@ -15,6 +14,7 @@ class ProfileRepoImpl extends ProfileRepo {
   final ApiConsumer apiConsumer;
 
   ProfileRepoImpl({required this.apiConsumer});
+  @override
   Future<Either<ServerException, String>> uploadProfileImage(
     XFile image,
   ) async {
@@ -30,13 +30,17 @@ class ProfileRepoImpl extends ProfileRepo {
       );
       log(response.toString());
       final imageUrl = response["data"]["image"] ?? response["image"];
-      if (imageUrl == null) {
-        return Left(
-          ServerException(
-            errorModel: ErrorModel(message: "Image is not uploaded", statusCode: 500),
-        ));
+      if (imageUrl != null) {
+        return right(imageUrl.toString());
       }
-      return right(imageUrl.toString());
+
+      final message =
+          response["message"] ?? "Image uploaded, but no URL returned";
+      return Left(
+        ServerException(
+          errorModel: ErrorModel(message: message, statusCode: 500),
+        ),
+      );
     } on ServerException catch (e) {
       log(e.toString());
       return Left(e);

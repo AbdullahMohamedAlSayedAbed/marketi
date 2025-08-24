@@ -56,6 +56,7 @@ dependencies:
   readmore: ^3.0.0
   shared_preferences: ^2.5.3
   shimmer: ^3.0.0
+  icons_launcher: ^3.0.2
 
 dev_dependencies:
   flutter_lints: ^5.0.0
@@ -107,3 +108,10 @@ flutter_assets:
   output_path: lib/core/utils
   filename: app_images.dart
   field_prefix: null
+icons_launcher:
+  image_path: "assets/images/Logo_Splash_Screen.png"
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true

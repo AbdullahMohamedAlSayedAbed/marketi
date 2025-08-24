@@ -3,8 +3,8 @@ class Assets {
   Assets._();
   
   /// Assets for imagesEllipse1
-  /// assets/images/Ellipse1.svg
-  static const String imagesEllipse1 = "assets/images/Ellipse1.svg";
+  /// assets/images/Ellipse1.png
+  static const String imagesEllipse1 = "assets/images/Ellipse1.png";
 
   /// Assets for imagesFashion
   /// assets/images/Fashion.png

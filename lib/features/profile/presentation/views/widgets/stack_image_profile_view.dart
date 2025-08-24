@@ -12,22 +12,25 @@ class StackImageProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<ProfileImageCubitCubit, ProfileImageCubitState>(
       listener: (context, state) {
-          if (state is ProfileImageUploaded) {
+        if (state is ProfileImageUploaded) {
           showCustomToast(message: state.message, type: ToastType.success);
         } else if (state is ProfileImageError) {
           showCustomToast(message: state.message, type: ToastType.error);
         }
       },
       builder: (context, state) {
-         final cubit = context.read<ProfileImageCubitCubit>();
+        final cubit = context.read<ProfileImageCubitCubit>();
         return InkWell(
-          onTap: ()async {
+          onTap: () async {
             await cubit.pickImage();
           },
           child: Stack(
             alignment: AlignmentDirectional.bottomEnd,
             children: [
-              ImageProfileAppBar(widthAndHeight: 116.0,imageUrl: cubit.uploadedImageUrl,),
+              ImageProfileAppBar(
+                widthAndHeight: 116.0,
+                imageUrl: state is ProfileImagePicked ? state.image.path : null,
+              ),
               Container(
                 width: 24,
                 height: 24,
