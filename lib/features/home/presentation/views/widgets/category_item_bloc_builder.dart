@@ -16,13 +16,21 @@ class CategoryItemBlocBuilder extends StatelessWidget {
           return Center(child: Text(state.message));
         }
         if (state is GetGategorySuccess) {
-          return Wrap(
-            spacing: 16,
-            runSpacing: 8,
-            alignment: WrapAlignment.spaceBetween,
-            children: List.generate(6, (index) {
-              return CategoryItemWidget(category: state.categories[index]);
-            }),
+          return SizedBox(
+            height: 350,
+            child: GridView.builder(
+              itemCount:state.categories.length ,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 122 / 105,
+                mainAxisSpacing: 16,
+                crossAxisSpacing: 8,
+              ),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return CategoryItemWidget(category: state.categories[index]);
+              },
+            ),
           );
         }
         return CustomShimmerLoading(

@@ -63,55 +63,7 @@ class HomeViewBody extends StatelessWidget {
                 },
               ),
               const CategoryItemBlocBuilder(),
-              BlocBuilder<GetAllProductCubit, GetAllProductState>(
-                builder: (context, state) {
-                  if (state is GetAllProductError) {
-                    return CustomErrorWidget(errorMessage: state.message);
-                  } else if (state is GetAllProductSuccess) {
-                    if (state.allProductModel.list!.isEmpty) {
-                      return Center(child: Text('No Product Available'));
-                    }
-                    return ListViewSeparatedItemProduct(
-                      title: 'Best for You',
-                      onTap: () {
-                        context.pushNamed(AppRouter.popularProductView);
-                      },
-                      allProductModel: state.allProductModel,
-                    );
-                  }
-                  return CustomShimmerLoading(
-                    child: ListViewSeparatedItemProduct(
-                      title: 'Best for You',
-                      allProductModel: allProductDummy,
-                    ),
-                  );
-                },
-              ),
               const BrandsColumnWidget(),
-              BlocBuilder<GetAllProductCubit, GetAllProductState>(
-                builder: (context, state) {
-                  if (state is GetAllProductError) {
-                    return CustomErrorWidget(errorMessage: state.message);
-                  } else if (state is GetAllProductSuccess) {
-                    if (state.allProductModel.list!.isEmpty) {
-                      return Center(child: Text('No Product Available'));
-                    }
-                    return ListViewSeparatedItemProduct(
-                      title: 'Buy Again',
-                      onTap: () {
-                        context.pushNamed(AppRouter.popularProductView);
-                      },
-                      allProductModel: state.allProductModel,
-                    );
-                  }
-                  return CustomShimmerLoading(
-                    child: ListViewSeparatedItemProduct(
-                      title: 'Buy Again',
-                      allProductModel: allProductDummy,
-                    ),
-                  );
-                },
-              ),
             ],
           ).paddingSymmetric(
             horizontalPadding: kHorizontalPadding,

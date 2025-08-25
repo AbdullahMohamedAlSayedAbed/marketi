@@ -9,6 +9,8 @@ import 'package:marketi/features/details/presentation/views/widgets/product_rati
 import 'package:marketi/features/details/presentation/views/widgets/size_option.dart';
 import 'package:marketi/features/home/data/models/all_product_model/product.dart';
 import 'package:provider/provider.dart';
+import 'package:animate_do/animate_do.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductMoreDetails extends StatelessWidget {
   const ProductMoreDetails({super.key});
@@ -16,64 +18,85 @@ class ProductMoreDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var product = context.read<Product>();
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const FreeShippingTag(),
-            ProductRating(
-              rating: product.reviews![0].rating?.toDouble() ?? 0.0,
-            ),
-          ],
+        FadeInDown(
+          duration: const Duration(milliseconds: 500),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const FreeShippingTag(),
+              ProductRating(
+                rating: product.reviews![0].rating?.toDouble() ?? 0.0,
+              ),
+            ],
+          ),
         ),
         const SizedBox(height: 12),
-        Text(
-          product.title ?? '',
-          style: AppStyles().style18w500.copyWith(
-            color: AppColors.darkPrimaryColor,
+
+        FadeInLeft(
+          duration: const Duration(milliseconds: 600),
+          child: Text(
+            product.title ?? '',
+            style: AppStyles().style18w500.copyWith(
+                  color: AppColors.darkPrimaryColor,
+                ),
           ),
         ),
         const SizedBox(height: 8),
 
-        Text(
-          'Product Value',
-          style: AppStyles().style16w400.copyWith(
-            color: AppColors.darkPrimaryColor,
+        FadeInLeft(
+          duration: const Duration(milliseconds: 700),
+          child: Text(
+            'Product Value',
+            style: AppStyles().style16w400.copyWith(
+                  color: AppColors.darkPrimaryColor,
+                ),
           ),
         ),
         const SizedBox(height: 8),
 
-        CustomReadMoreText(text: product.description ?? ''),
+        FadeInRight(
+          duration: const Duration(milliseconds: 800),
+          child: CustomReadMoreText(text: product.description ?? ''),
+        ),
         const SizedBox(height: 16),
 
-        Text(
-          'Select Size',
-          style: AppStyles().style16w400.copyWith(
-            color: AppColors.darkPrimaryColor,
+        FadeInUp(
+          duration: const Duration(milliseconds: 900),
+          child: Text(
+            'Select Size',
+            style: AppStyles().style16w400.copyWith(
+                  color: AppColors.darkPrimaryColor,
+                ),
           ),
         ),
         const SizedBox(height: 12),
-        Row(
-          spacing: 12,
-          children: const [
-            SizeOption(size: "3", isSelected: false),
 
-            SizeOption(size: "2", isSelected: true),
-
-            SizeOption(size: "4", isSelected: false),
-          ],
+        FadeInUp(
+          duration: const Duration(milliseconds: 1000),
+          child: Row(
+            spacing: 12,
+            children: const [
+              SizeOption(size: "3", isSelected: false),
+              SizeOption(size: "2", isSelected: true),
+              SizeOption(size: "4", isSelected: false),
+            ],
+          ),
         ),
         const SizedBox(height: 24),
 
-        /// Price + Add to Cart
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            PriceText(price: "${product.price} EGP"),
-            AddToCartButton(),
-          ],
+        FadeInUp(
+          duration: const Duration(milliseconds: 1100),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              PriceText(price: "${product.price} EGP"),
+              AddToCartButton(),
+            ],
+          ),
         ),
       ],
     );
