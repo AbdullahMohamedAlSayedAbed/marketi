@@ -10,9 +10,11 @@ class RowItemProfileWidget extends StatelessWidget {
     required this.title,
     this.onTap,
   });
+
   final IconData? icon;
   final String title;
   final void Function()? onTap;
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -26,22 +28,23 @@ class RowItemProfileWidget extends StatelessWidget {
               Text(
                 title,
                 style: AppStyles().style16w500.copyWith(
-                  color: AppColors.darkPrimaryColor,
-                ),
+                      color: AppColors.darkPrimaryColor,
+                    ),
               ),
-              Spacer(),
-              ArrowSelect(),
+              const Spacer(),
+              const ArrowSelect(),
             ],
           ),
-          Divider(
+          const Divider(
             height: 25,
             indent: 7,
             endIndent: 7,
-            radius: BorderRadius.all(Radius.circular(5)),
-            color: const Color(0xFFDCDDDF),
+            thickness: 1,
+            color: Color(0xFFDCDDDF),
           ),
         ],
       ),
     );
   }
 }
+
